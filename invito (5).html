@@ -3,147 +3,98 @@
 <head>
 <meta charset="UTF-8">
 <title>Vera Laura's Birthday 🎉</title>
-
 <style>
-/* FONT DA TERMINALE HACKER */
-@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
-
 body {
     margin: 0;
-    font-family: 'Share Tech Mono', monospace;
-    text-align: center;
+    font-family: 'Courier New', monospace;
     background: black;
     color: #00ff00;
+    overflow: hidden;
+}
+#terminal {
     padding: 20px;
-    overflow-x: hidden;
+    font-size: 20px;
+    white-space: pre-wrap;
 }
-
-/* TESTO CHE TREMA */
-.glitch {
-    font-size: 40px;
-    font-weight: bold;
-    color: #ff0033;
-    position: relative;
-    animation: glitch 0.8s infinite;
-    text-shadow: 
-        2px 2px 0 #00ffea,
-        -2px -2px 0 #ff00e1;
-}
-
-@keyframes glitch {
-    0% { transform: translate(0); }
-    20% { transform: translate(-2px, 2px); }
-    40% { transform: translate(-2px, -2px); }
-    60% { transform: translate(2px, 2px); }
-    80% { transform: translate(2px, -2px); }
-    100% { transform: translate(0); }
-}
-
-/* TERMINALE */
-#typewriter {
-    font-size: 22px;
-    white-space: pre-line;
-    margin-top: 20px;
-    color: #00ff00;
-}
-
-/* LAMPEGGIO */
-.blink {
-    animation: blink 1s infinite alternate;
-}
-
-@keyframes blink {
-    from { opacity: 1; }
-    to { opacity: 0.4; }
-}
-
-/* STILE FINALE ROSA */
-.final-body {
-    background-color: #ffe6f2; /* rosa chiaro */
+#final-screen {
+    display: none;
+    text-align: center;
+    padding: 40px;
+    background-color: #ffe6f2;
     color: #cc0066;
     font-family: Arial, sans-serif;
 }
-
-.final-body h1 {
-    font-size: 40px;
-    color: #ff0000;
-    font-weight: 900;
-    text-shadow: 2px 2px 8px black;
-    margin-bottom: 25px;
-}
-
-.final-body p {
-    font-size: 22px;
-    margin-top: 25px;
-}
-.final-body h2 {
-    font-size: 36px;
-    color: #ff3399;
-    margin-bottom: 10px;
-}
-.final-body p.subtitle {
+button {
+    padding: 15px 25px;
     font-size: 20px;
-    color: #cc0066;
-    margin-bottom: 30px;
+    border-radius: 50px;
+    background: #ff66b2;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin: 20px;
 }
-.final-body button, .final-body a.rsvp {
-    margin-top: 15px;
+button:hover {
+    background: #ff3399;
 }
 </style>
-
 </head>
 <body>
+<div id="terminal"></div>
 
-<!-- SCHERMATA HACKER -->
-<div id="hacker-screen">
-    <h1 class="glitch">⚠️ SYSTEM BREACH DETECTED ⚠️</h1>
-    <div id="typewriter"></div>
-</div>
-
-<!-- SCHERMATA FINALE -->
-<div id="final-screen" class="final-body" style="display:none;">
+<div id="final-screen">
     <div class="banner">
-        <h1>⚠️ ATTENZIONE: IL TUO COMPUTER È STATO HACKERATO! ⚠️</h1>
-        <p>Scherzo! Sei "solo" stat* invitat* alla mia festa di compleanno! 🎉🎂🎈</p>
+        <h1 style="font-size:40px;color:#ff0000;font-weight:900;text-shadow:2px 2px 8px black;margin-bottom:25px;">
+            ⚠️ ATTENZIONE: IL TUO COMPUTER È STATO HACKERATO! ⚠️
+        </h1>
+        <p style="font-size:22px;margin-top:25px;color:white;">
+            Scherzo! Sei "solo" stat* invitat* alla mia festa di compleanno! 🎉🎂🎈
+        </p>
     </div>
+    <h2 style="font-size:36px;color:#ff3399;">Happy Birthday Vera Laura 💝</h2>
+    <p style="font-size:20px;color:#cc0066;">Il tuo invito è pronto! Aggiungilo subito al calendario.</p>
 
-    <h2>Happy Birthday Vera Laura 💝 </h2>
-    <p class="subtitle">Il tuo invito è pronto! Aggiungilo subito al calendario.</p>
-
-    <a href="https://raw.githubusercontent.com/mannajalavita-a11y/Vera-Laura-s-Birthday/main/vera-laura-birthday.ics" download="vera-laura-birthday.ics">
+    <a href="https://raw.githubusercontent.com/mannajalavita-a11y/Vera-Laura-s-Birthday/refs/heads/main/vera-laura-birthday.ics" download="vera-laura-birthday.ics">
         <button>Scarica l'invito</button>
     </a>
 
-    <p class="subtitle">Conferma la tua presenza:</p>
-    <a class="rsvp" href="https://forms.gle/Moo37Yex96tCXFwL9" target="_blank">👉 Conferma qui!</a>
+    <a href="https://forms.gle/Moo37Yex96tCXFwL9" target="_blank">
+        <button>Conferma qui!</button>
+    </a>
 </div>
 
 <script>
-/* TESTO CHE APPARE COME TERMINALE */
-const text = `
-> Connessione al dispositivo in corso...
-> Accesso ai file personali...
-> Download attivato...
-> Tranquill*, era uno scherzo 😈
-> Sei stat* invitat* alla festa di compleanno di Vera Laura 🎉
-`;
+const terminal = document.getElementById("terminal");
+const final = document.getElementById("final-screen");
+
+const lines = [
+    "Inizializzazione sistema…",
+    "Analisi sicurezza…",
+    "Vulnerabilità trovata!",
+    "Accesso ai file…",
+    "Decifratura…",
+    "Autorizzazione bypassata.",
+    "INTRUSIONE COMPLETATA.",
+    "Caricamento payload…",
+    "Attivazione sorpresa…"
+];
 
 let i = 0;
-function typeWriter() {
-    if (i < text.length) {
-        document.getElementById("typewriter").innerHTML += text.charAt(i);
+function typeLine() {
+    if (i < lines.length) {
+        terminal.textContent += lines[i] + "
+";
         i++;
-        setTimeout(typeWriter, 40);
+        setTimeout(typeLine, 700);
+    } else {
+        setTimeout(() => {
+            terminal.style.display = "none";
+            final.style.display = "block";
+        }, 1200);
     }
 }
-typeWriter();
 
-/* PASSAGGIO AUTOMATICO ALLA PAGINA ROSA */
-setTimeout(() => {
-    document.getElementById("hacker-screen").style.display = "none";
-    document.getElementById("final-screen").style.display = "block";
-}, 8000); // 8 secondi di effetto hacker
+window.onload = typeLine;
 </script>
-
 </body>
 </html>
