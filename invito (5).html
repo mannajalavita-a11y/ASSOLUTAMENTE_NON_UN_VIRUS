@@ -1,114 +1,92 @@
 <!DOCTYPE html>
-<html lang="it">
-<head>
-<meta charset="UTF-8">
-<title>Festa Vera Laura</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<style>
-body {
-    background: linear-gradient(180deg, #fff0f6, #ffe6f2, #fce4ff);
-    text-align: center;
-    font-family: "Cinzel Decorative", serif;
-    overflow-x: hidden;
-}
-
-/* Testo iniziale */
-.invito-linea {
-    font-size: 22px;
-    color: #b30086;
-    margin-top: 20px;
-    font-weight: 600;
-}
-
-/* HAPPY BIRTHDAY */
-.hb {
-    font-size: 36px;
-    margin-top: 10px;
-    color: #7a006c;
-    font-weight: bold;
-}
-
-/* VERA LAURA */
-.nome {
-    font-size: 46px;
-    font-weight: 700;
-    margin-top: -5px;
-    color: #8b007a;
-}
-
-/* GIF */
-.top-gif {
-    width: 220px;
-    margin-top: 10px;
-}
-
-.bottom-gif {
-    width: 180px;
-    margin: 30px;
-}
-
-/* Bottoni */
-.btn-container {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-}
-
-button {
-    padding: 12px 24px;
-    font-size: 18px;
-    font-weight: bold;
-    border-radius: 12px;
-    border: none;
-    cursor: pointer;
-    background: #ffb7e6;
-    transition: 0.3s;
-    font-family: "Cinzel", serif;
-}
-
-button:hover {
-    background: #ff95db;
-}
-
-/* Messaggio "loading hacker" */
-#hacker-message {
-    font-family: monospace;
-    color: #ff0095;
-    margin-top: 20px;
-    white-space: pre-line;
-    display: none;
-}
-</style>
-</head>
-<body>
-
-<!-- MUSICA -->
-<audio autoplay loop>
-  <source src="https://files.freemusicarchive.org/storage-freemusicarchive-org/music/no_curator/Monk_Turner__Fascinoma/The_New_Contemplations_of_Monk_Turner/Fascinoma_-_03_-_La_Vie_en_Rose.mp3" type="audio/mpeg">
 </audio>
 
-<!-- GIF SUPERIORE -->
-<img class="top-gif" src="https://i.pinimg.com/originals/24/1a/ca/241aca6abe6f2f512e206bff1d807ea5.gif">
 
-<!-- TESTO -->
-<div class="invito-linea">Sei stat* invitat* alla festa più bella che ci sia!</div>
+<!-- SCHERMATA HACKER -->
+<div id="hacker-screen">
+<div id="hacker-text"></div>
+</div>
 
-<div class="hb">HAPPY BIRTHDAY</div>
+
+<!-- PAGINA ROSA PRINCIPESCA -->
+<div id="real-page">
+
+
+<!-- Cuore superiore GIF -->
+<img src="https://i.pinimg.com/originals/24/1a/ca/241aca6abe6f2f512e206bff1d807ea5.gif" class="decoration">
+
+
+<h1>Sei stat* invitat* alla festa più bella che ci sia!</h1>
+<h2>HAPPY BIRTHDAY</h2>
 <div class="nome">🎀 VERA LAURA 🎀</div>
 
-<!-- BOTTONI (invertiti) -->
-<div class="btn-container">
-    <button onclick="window.location.href='GOOGLE_FORM_LINK_HERE'">Conferma presenza</button>
-    <button onclick="window.location.href='ICS_FILE_LINK_HERE'">Scarica l’invito</button>
+
+<!-- BOTTONI invertiti -->
+<button id="btn-form" onclick="window.location.href='GOOGLE_FORM_LINK_HERE'">
+💗 Conferma la tua presenza
+</button>
+
+
+<button id="btn-ics" onclick="window.location.href='ICS_LINK_HERE'">
+📅 Scarica l'invito
+</button>
+
+
+<!-- Principessa inferiore GIF duplicata -->
+<br><br>
+<img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMjhydmp0bmJpb2VsYjZucm9udzBxMTdjdW5qOXU0OThpZHMzZHB6YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/jSEvK8lnqeCfWASVNi/giphy.gif" class="decoration">
+<img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMjhydmp0bmJpb2VsYjZucm9udzBxMTdjdW5qOXU0OThpZHMzZHB6YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/jSEvK8lnqeCfWASVNi/giphy.gif" class="decoration">
+
+
 </div>
 
-<!-- GIF PRINCIPESCHE SOTTO (duplicata ai lati) -->
-<div style="margin-top:40px;">
-    <img class="bottom-gif" src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMjhydmp0bmJpb2VsYjZucm9udzBxMTdjdW5qOXU0OThpZHMzZHB6YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/jSEvK8lnqeCfWASVNi/giphy.gif">
-    <img class="bottom-gif" src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMjhydmp0bmJpb2VsYjZucm9udzBxMTdjdW5qOXU0OThpZHMzZHB6YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/jSEvK8lnqeCfWASVNi/giphy.gif">
-</div>
+
+<script>
+
+
+/* --- TESTO HACKER --- */
+const hackerLines = [
+"INITIALIZING SYSTEM BREACH...",
+"ACCESSING SECURE FILES...",
+"BY-PASSING FIREWALL...",
+"INJECTING MALWARE PACKAGES...",
+"DOWNLOADING PRIVATE DATA...",
+"SYSTEM OVERRIDE IN PROGRESS...",
+"### ATTENZIONE: DISPOSITIVO INFETTATO ###",
+"ERRORE CRITICO: CONTROLLO COMPROMESSO",
+"AVVIO PROCEDURA DI RESET OBBLIGATORIO...",
+"",
+"Scherzo 😄",
+"Sei stat* invitat* alla festa di Vera Laura!"
+];
+
+
+let index = 0;
+function typeNextLine() {
+if (index < hackerLines.length) {
+document.getElementById("hacker-text").innerHTML += hackerLines[index] + "<br>";
+index++;
+setTimeout(typeNextLine, 400);
+}
+}
+typeNextLine();
+
+
+/* --- FINE EFFETTO → MOSTRA PAGINA ROSA + MUSICA --- */
+setTimeout(() => {
+document.getElementById("hacker-screen").style.display = "none";
+document.body.style.overflow = "visible";
+document.getElementById("real-page").style.display = "block";
+
+
+const audio = document.getElementById("bg-music");
+audio.volume = 0.45;
+audio.play().catch(()=>{});
+}, 7000);
+
+
+</script>
+
 
 </body>
 </html>
