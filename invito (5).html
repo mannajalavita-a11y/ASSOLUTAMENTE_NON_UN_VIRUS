@@ -32,19 +32,9 @@ body {
     z-index: 9999;
 }
 
-/* Effetto Matrix */
-.matrix {
-    font-size: 20px;
-    white-space: nowrap;
-    user-select: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    color: #00ff55;
-    opacity: 0.7;
-}
+.matrix { font-size: 20px; white-space: nowrap; position: absolute; top: 0; left: 0; color: #00ff55; opacity: 0.7; }
 
-/* --- PAGINA ROSA PRINCESCA --- */
+/* --- PAGINA ROSA --- */
 #real-page {
     display: none;
     height: 100vh;
@@ -56,16 +46,20 @@ body {
     padding: 30px;
 }
 
+/* Testi */
 #real-page h1 {
-    font-size: 2.5rem;
-    margin-top: 30px;
+    font-size: 1.9rem; 
+    margin-top: 20px;
 }
 
 #real-page h2 {
-    font-size: 1.8rem;
-    margin-top: 10px;
+    font-size: 3rem; 
+    margin-top: 0;
+    text-transform: uppercase;
+    color: #c2185b;
 }
 
+/* Bottoni */
 button {
     padding: 15px 25px;
     font-size: 1.2rem;
@@ -77,26 +71,21 @@ button {
     transition: 0.3s;
 }
 
-#btn-ics {
-    background: #ff69b4;
-    color: white;
-}
-
-#btn-ics:hover {
-    background: #ff85c8;
-}
-
 #btn-form {
     background: #ff8ad9;
     color: white;
 }
+#btn-form:hover { background: #ffa6e5; }
 
-#btn-form:hover {
-    background: #ffa6e5;
+#btn-ics {
+    background: #ff69b4;
+    color: white;
 }
+#btn-ics:hover { background: #ff85c8; }
 
+/* GIF decorative */
 .decoration {
-    width: 120px;
+    width: 130px;
     margin: 10px;
 }
 
@@ -110,39 +99,34 @@ button {
     <source src="AUDIO_LINK_HERE" type="audio/mp3">
 </audio>
 
-<!-- Default audio suggerito: musica principesca -->
-<!-- 
-SUGGERIMENTO:
-Puoi usare questa musica già pronta (libera e gratuita):
-https://cdn.pixabay.com/download/audio/2022/03/15/audio_7e985e9d5d.mp3?filename=the-kingdoms-rise-141199.mp3
-Copiala nel tuo repo o incollala al posto di AUDIO_LINK_HERE
--->
-
 <!-- SCHERMATA HACKER -->
 <div id="hacker-screen">
     <div id="hacker-text"></div>
 </div>
 
-<!-- PAGINA ROSA -->
+<!-- PAGINA ROSA PRINCIPESCA -->
 <div id="real-page">
 
-    <img src="https://i.gifer.com/4V0b.gif" class="decoration">
-    <img src="https://i.gifer.com/4V0b.gif" class="decoration">
+    <!-- Cuori glitter -->
+    <img src="https://i.gifer.com/7VEg.gif" class="decoration">
+    <img src="https://i.gifer.com/7VEg.gif" class="decoration">
 
-    <h1>Sei stat* invitat* alla festa di Vera Laura!</h1>
-    <h2>Happy Birthday Vera Laura! 🎀</h2>
+    <h1>Sei stat* invitat* alla festa più bella che ci sia!</h1>
+    <h2>Happy Birthday Vera Laura 🎀</h2>
 
-    <button id="btn-ics" onclick="window.location.href='ICS_LINK_HERE'">
-        📅 Scarica l'invito (ICS)
-    </button>
-
+    <!-- BOTTONI invertiti -->
     <button id="btn-form" onclick="window.location.href='GOOGLE_FORM_LINK_HERE'">
         💗 Conferma la tua presenza
     </button>
 
+    <button id="btn-ics" onclick="window.location.href='ICS_LINK_HERE'">
+        📅 Scarica l'invito
+    </button>
+
+    <!-- Principesse danzanti -->
     <br><br>
-    <img src="https://i.gifer.com/7VE.gif" class="decoration">
-    <img src="https://i.gifer.com/7VE.gif" class="decoration">
+    <img src="https://i.gifer.com/3MNB.gif" class="decoration">
+    <img src="https://i.gifer.com/3MNB.gif" class="decoration">
 
 </div>
 
@@ -172,21 +156,17 @@ function typeNextLine() {
         setTimeout(typeNextLine, 400);
     }
 }
-
 typeNextLine();
 
-/* ---- AL TERMINE → APRI PAGINA ROSA + MUSICA ---- */
+/* --- FINE EFFETTO → MOSTRA PAGINA ROSA + MUSICA --- */
 setTimeout(() => {
     document.getElementById("hacker-screen").style.display = "none";
     document.body.style.overflow = "visible";
     document.getElementById("real-page").style.display = "block";
 
     const audio = document.getElementById("bg-music");
-    audio.volume = 0.45;      // volume elegante
-    audio.play().catch(() => {
-        console.log("Autoplay bloccato dal dispositivo. Partirà al primo click.");
-    });
-
+    audio.volume = 0.45;
+    audio.play().catch(()=>{});
 }, 7000);
 
 </script>
