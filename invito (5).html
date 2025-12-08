@@ -35,20 +35,40 @@ body {
 /* --- PAGINA ROSA --- */
 #real-page {
     display: none;
-    height: 100vh;
+    min-height: 100vh;
     overflow-y: auto;
     background: linear-gradient(180deg, #ffcef2, #ffd9ec);
     text-align: center;
     font-family: "Pacifico", cursive;
     color: #d63384;
     padding: 30px;
+    position: relative;
+}
+
+/* Glitter ai lati */
+.glitter-left, .glitter-right {
+    position: fixed;
+    top: 0;
+    width: 50px;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+    animation: sparkleFall 5s linear infinite;
+}
+
+.glitter-left { left: 0; }
+.glitter-right { right: 0; }
+
+@keyframes sparkleFall {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
 }
 
 /* Testi con sparkle */
 #real-page h1 {
     font-size: 1.5rem; 
     margin-top: 20px;
-    animation: sparkle 2s infinite;
+    animation: textSparkle 2s infinite;
 }
 
 #real-page h2 {
@@ -56,18 +76,17 @@ body {
     margin-top: 10px;
     text-transform: uppercase;
     color: #c2185b;
-    animation: sparkle 2s infinite;
+    animation: textSparkle 2s infinite;
 }
 
 #real-page .nome {
     font-size: 3.5rem;
     margin-top: 5px;
     color: #8b007a;
-    animation: sparkle 2s infinite;
+    animation: textSparkle 2s infinite;
 }
 
-/* Sparkle effect */
-@keyframes sparkle {
+@keyframes textSparkle {
     0% { text-shadow: 0 0 2px #fff, 0 0 5px #ffb6c1; }
     50% { text-shadow: 0 0 4px #fff, 0 0 12px #ff69b4; }
     100% { text-shadow: 0 0 2px #fff, 0 0 5px #ffb6c1; }
@@ -113,6 +132,10 @@ button {
     <div id="hacker-text"></div>
 </div>
 
+<!-- Glitter laterali -->
+<img src="https://i.gifer.com/originales/glitter1.gif" class="glitter-left">
+<img src="https://i.gifer.com/originales/glitter1.gif" class="glitter-right">
+
 <!-- PAGINA ROSA PRINCIPESCA -->
 <div id="real-page">
 
@@ -124,11 +147,11 @@ button {
     <div class="nome">🎀 VERA LAURA 🎀</div>
 
     <!-- BOTTONI invertiti -->
-    <button id="btn-form" onclick="window.location.href='https://docs.google.com/forms/d/e/1FAIpQLSd2t0Bpbi9hbBaLnRB2Z3dcJIAeSE5EHqJ4uGCPamgP7V0XrA/viewformGOOGLE_FORM_LINK_HERE'>
+    <button id="btn-form" onclick="window.location.href='https://forms.gle/aQfoGeQGaRkpiAbs6'">
         💗 Conferma la tua presenza
     </button>
 
-    <button id="btn-ics" onclick="window.location.href='https://raw.githubusercontent.com/mannajalavita-a11y/Pagina-invito-VL/refs/heads/main/vera-laura-birthday.ics'>
+    <button id="btn-ics" onclick="window.location.href='https://raw.githubusercontent.com/mannajalavita-a11y/Pagina-invito-VL/refs/heads/main/vera-laura-birthday.ics'">
         📅 Scarica l'invito
     </button>
 
@@ -178,4 +201,3 @@ setTimeout(() => {
 
 </body>
 </html>
-
