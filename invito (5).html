@@ -2,99 +2,194 @@
 <html lang="it">
 <head>
 <meta charset="UTF-8">
-<title>Vera Laura's Birthday 🎉</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invito festa Vera Laura</title>
+
 <style>
+
+/* --- SCHERMATA HACKER --- */
 body {
     margin: 0;
-    font-family: 'Courier New', monospace;
+    padding: 0;
+    font-family: monospace;
     background: black;
-    color: #00ff00;
+    color: #00ff55;
     overflow: hidden;
 }
-#terminal {
-    padding: 20px;
-    font-size: 20px;
-    white-space: pre-wrap;
-}
-#final-screen {
-    display: none;
+
+#hacker-screen {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: black;
+    color: #00ff55;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
     text-align: center;
-    padding: 40px;
-    background-color: #ffe6f2;
-    color: #cc0066;
-    font-family: Arial, sans-serif;
+    padding: 20px;
+    z-index: 9999;
 }
+
+/* Effetto Matrix */
+.matrix {
+    font-size: 20px;
+    white-space: nowrap;
+    user-select: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #00ff55;
+    opacity: 0.7;
+}
+
+/* --- PAGINA ROSA PRINCESCA --- */
+#real-page {
+    display: none;
+    height: 100vh;
+    overflow-y: auto;
+    background: linear-gradient(180deg, #ffcef2, #ffd9ec);
+    text-align: center;
+    font-family: "Pacifico", cursive;
+    color: #d63384;
+    padding: 30px;
+}
+
+#real-page h1 {
+    font-size: 2.5rem;
+    margin-top: 30px;
+}
+
+#real-page h2 {
+    font-size: 1.8rem;
+    margin-top: 10px;
+}
+
 button {
     padding: 15px 25px;
-    font-size: 20px;
-    border-radius: 50px;
-    background: #ff66b2;
-    color: white;
-    border: none;
-    cursor: pointer;
+    font-size: 1.2rem;
     margin: 20px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-family: "Pacifico", cursive;
+    transition: 0.3s;
 }
-button:hover {
-    background: #ff3399;
+
+#btn-ics {
+    background: #ff69b4;
+    color: white;
 }
+
+#btn-ics:hover {
+    background: #ff85c8;
+}
+
+#btn-form {
+    background: #ff8ad9;
+    color: white;
+}
+
+#btn-form:hover {
+    background: #ffa6e5;
+}
+
+.decoration {
+    width: 120px;
+    margin: 10px;
+}
+
 </style>
 </head>
+
 <body>
-<div id="terminal"></div>
 
-<div id="final-screen">
-    <div class="banner">
-        <h1 style="font-size:40px;color:#ff0000;font-weight:900;text-shadow:2px 2px 8px black;margin-bottom:25px;">
-            ⚠️ ATTENZIONE: IL TUO COMPUTER È STATO HACKERATO! ⚠️
-        </h1>
-        <p style="font-size:22px;margin-top:25px;color:white;">
-            Scherzo! Sei "solo" stat* invitat* alla mia festa di compleanno! 🎉🎂🎈
-        </p>
-    </div>
-    <h2 style="font-size:36px;color:#ff3399;">Happy Birthday Vera Laura 💝</h2>
-    <p style="font-size:20px;color:#cc0066;">Il tuo invito è pronto! Aggiungilo subito al calendario.</p>
+<!-- AUDIO HIDDEN PLAYER -->
+<audio id="bg-music" loop>
+    <source src="AUDIO_LINK_HERE" type="audio/mp3">
+</audio>
 
-    <a href="https://raw.githubusercontent.com/mannajalavita-a11y/Vera-Laura-s-Birthday/refs/heads/main/vera-laura-birthday.ics" download="vera-laura-birthday.ics">
-        <button>Scarica l'invito</button>
-    </a>
+<!-- Default audio suggerito: musica principesca -->
+<!-- 
+SUGGERIMENTO:
+Puoi usare questa musica già pronta (libera e gratuita):
+https://cdn.pixabay.com/download/audio/2022/03/15/audio_7e985e9d5d.mp3?filename=the-kingdoms-rise-141199.mp3
+Copiala nel tuo repo o incollala al posto di AUDIO_LINK_HERE
+-->
 
-    <a href="https://forms.gle/Moo37Yex96tCXFwL9" target="_blank">
-        <button>Conferma qui!</button>
-    </a>
+<!-- SCHERMATA HACKER -->
+<div id="hacker-screen">
+    <div id="hacker-text"></div>
+</div>
+
+<!-- PAGINA ROSA -->
+<div id="real-page">
+
+    <img src="https://i.gifer.com/4V0b.gif" class="decoration">
+    <img src="https://i.gifer.com/4V0b.gif" class="decoration">
+
+    <h1>Sei stat* invitat* alla festa di Vera Laura!</h1>
+    <h2>Happy Birthday Vera Laura! 🎀</h2>
+
+    <button id="btn-ics" onclick="window.location.href='ICS_LINK_HERE'">
+        📅 Scarica l'invito (ICS)
+    </button>
+
+    <button id="btn-form" onclick="window.location.href='GOOGLE_FORM_LINK_HERE'">
+        💗 Conferma la tua presenza
+    </button>
+
+    <br><br>
+    <img src="https://i.gifer.com/7VE.gif" class="decoration">
+    <img src="https://i.gifer.com/7VE.gif" class="decoration">
+
 </div>
 
 <script>
-const terminal = document.getElementById("terminal");
-const final = document.getElementById("final-screen");
 
-const lines = [
-    "Inizializzazione sistema…",
-    "Analisi sicurezza…",
-    "Vulnerabilità trovata!",
-    "Accesso ai file…",
-    "Decifratura…",
-    "Autorizzazione bypassata.",
-    "INTRUSIONE COMPLETATA.",
-    "Caricamento payload…",
-    "Attivazione sorpresa…"
+/* --- TESTO HACKER --- */
+const hackerLines = [
+    "INITIALIZING SYSTEM BREACH...",
+    "ACCESSING SECURE FILES...",
+    "BY-PASSING FIREWALL...",
+    "INJECTING MALWARE PACKAGES...",
+    "DOWNLOADING PRIVATE DATA...",
+    "SYSTEM OVERRIDE IN PROGRESS...",
+    "### ATTENZIONE: DISPOSITIVO INFETTATO ###",
+    "ERRORE CRITICO: CONTROLLO COMPROMESSO",
+    "AVVIO PROCEDURA DI RESET OBBLIGATORIO...",
+    "",
+    "Scherzo 😄",
+    "Sei stat* invitat* alla festa di Vera Laura!"
 ];
 
-let i = 0;
-function typeLine() {
-    if (i < lines.length) {
-        terminal.textContent += lines[i] + "
-";
-        i++;
-        setTimeout(typeLine, 700);
-    } else {
-        setTimeout(() => {
-            terminal.style.display = "none";
-            final.style.display = "block";
-        }, 1200);
+let index = 0;
+function typeNextLine() {
+    if (index < hackerLines.length) {
+        document.getElementById("hacker-text").innerHTML += hackerLines[index] + "<br>";
+        index++;
+        setTimeout(typeNextLine, 400);
     }
 }
 
-window.onload = typeLine;
+typeNextLine();
+
+/* ---- AL TERMINE → APRI PAGINA ROSA + MUSICA ---- */
+setTimeout(() => {
+    document.getElementById("hacker-screen").style.display = "none";
+    document.body.style.overflow = "visible";
+    document.getElementById("real-page").style.display = "block";
+
+    const audio = document.getElementById("bg-music");
+    audio.volume = 0.45;      // volume elegante
+    audio.play().catch(() => {
+        console.log("Autoplay bloccato dal dispositivo. Partirà al primo click.");
+    });
+
+}, 7000);
+
 </script>
+
 </body>
 </html>
