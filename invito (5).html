@@ -5,91 +5,145 @@
 <title>Vera Laura's Birthday 🎉</title>
 
 <style>
-/* Sfondo e font */
+/* FONT DA TERMINALE HACKER */
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
 body {
-    font-family: 'Arial', sans-serif;
-    padding: 30px;
-    background-color: #ffe6f2; /* rosa chiaro */
+    margin: 0;
+    font-family: 'Share Tech Mono', monospace;
     text-align: center;
+    background: black;
+    color: #00ff00;
+    padding: 20px;
+    overflow-x: hidden;
 }
 
-/* Titolo festoso */
-h2 {
+/* TESTO CHE TREMA */
+.glitch {
+    font-size: 40px;
+    font-weight: bold;
+    color: #ff0033;
+    position: relative;
+    animation: glitch 0.8s infinite;
+    text-shadow: 
+        2px 2px 0 #00ffea,
+        -2px -2px 0 #ff00e1;
+}
+
+@keyframes glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+    100% { transform: translate(0); }
+}
+
+/* TERMINALE */
+#typewriter {
+    font-size: 22px;
+    white-space: pre-line;
+    margin-top: 20px;
+    color: #00ff00;
+}
+
+/* LAMPEGGIO */
+.blink {
+    animation: blink 1s infinite alternate;
+}
+
+@keyframes blink {
+    from { opacity: 1; }
+    to { opacity: 0.4; }
+}
+
+/* STILE FINALE ROSA */
+.final-body {
+    background-color: #ffe6f2; /* rosa chiaro */
+    color: #cc0066;
+    font-family: Arial, sans-serif;
+}
+
+.final-body h1 {
+    font-size: 40px;
+    color: #ff0000;
+    font-weight: 900;
+    text-shadow: 2px 2px 8px black;
+    margin-bottom: 25px;
+}
+
+.final-body p {
+    font-size: 22px;
+    margin-top: 25px;
+}
+.final-body h2 {
     font-size: 36px;
     color: #ff3399;
     margin-bottom: 10px;
 }
-
-/* Sottotitolo */
-p.subtitle {
+.final-body p.subtitle {
     font-size: 20px;
     color: #cc0066;
     margin-bottom: 30px;
 }
-
-/* Bottone download invito */
-button {
-    padding: 15px 25px;
-    font-size: 20px;
-    border-radius: 12px;
-    background: #ff66b2;
-    color: white;
-    border: none;
-    cursor: pointer;
-    margin: 15px 0;
-    transition: background 0.3s;
-}
-
-button:hover {
-    background: #ff3399;
-}
-
-/* Link RSVP */
-a.rsvp {
-    display: inline-block;
-    padding: 12px 20px;
-    font-size: 18px;
-    border-radius: 10px;
-    background: #ff66b2;
-    color: white;
-    text-decoration: none;
-    margin-top: 20px;
-    transition: background 0.3s;
-}
-
-/* Banner hacker-style */
-.banner {
-    margin-bottom: 25px;
-    font-size: 24px;
-    color: #ff3399;
+.final-body button, .final-body a.rsvp {
+    margin-top: 15px;
 }
 </style>
 
 </head>
 <body>
 
-<div class="banner">
-    <h1 style="font-size: 40px; color: #ff0000; font-weight: 900; text-shadow: 2px 2px 8px black; margin-bottom: 25px;">
-        ⚠️ ATTENZIONE: IL TUO COMPUTER È STATO HACKERATO! ⚠️
-    </h1>
-
-    <p style="font-size: 22px; margin-top: 25px; color: #cc0066;">
-        Scherzo! Sei "solo" stat* invitat* alla mia festa di compleanno! 🎉🎂🎈
-    </p>
+<!-- SCHERMATA HACKER -->
+<div id="hacker-screen">
+    <h1 class="glitch">⚠️ SYSTEM BREACH DETECTED ⚠️</h1>
+    <div id="typewriter"></div>
 </div>
 
-<h2>Happy Birthday Vera Laura 💝 </h2>
+<!-- SCHERMATA FINALE -->
+<div id="final-screen" class="final-body" style="display:none;">
+    <div class="banner">
+        <h1>⚠️ ATTENZIONE: IL TUO COMPUTER È STATO HACKERATO! ⚠️</h1>
+        <p>Scherzo! Sei "solo" stat* invitat* alla mia festa di compleanno! 🎉🎂🎈</p>
+    </div>
 
-<p class="subtitle">Il tuo invito è pronto! Aggiungilo subito al calendario.</p>
+    <h2>Happy Birthday Vera Laura 💝 </h2>
+    <p class="subtitle">Il tuo invito è pronto! Aggiungilo subito al calendario.</p>
 
-<!-- Bottone per scaricare l'invito .ics -->
-<a href="https://raw.githubusercontent.com/mannajalavita-a11y/Vera-Laura-s-Birthday/main/vera-laura-birthday.ics" download="vera-laura-birthday.ics">
-    <button>Scarica l'invito</button>
-</a>
+    <a href="https://raw.githubusercontent.com/mannajalavita-a11y/Vera-Laura-s-Birthday/main/vera-laura-birthday.ics" download="vera-laura-birthday.ics">
+        <button>Scarica l'invito</button>
+    </a>
 
-<p class="subtitle">Conferma la tua presenza:</p>
+    <p class="subtitle">Conferma la tua presenza:</p>
+    <a class="rsvp" href="https://forms.gle/Moo37Yex96tCXFwL9" target="_blank">👉 Conferma qui!</a>
+</div>
 
-<a class="rsvp" href="https://forms.gle/Moo37Yex96tCXFwL9" target="_blank">👉 Conferma qui!</a>
+<script>
+/* TESTO CHE APPARE COME TERMINALE */
+const text = `
+> Connessione al dispositivo in corso...
+> Accesso ai file personali...
+> Download attivato...
+> Tranquill*, era uno scherzo 😈
+> Sei stat* invitat* alla festa di compleanno di Vera Laura 🎉
+`;
+
+let i = 0;
+function typeWriter() {
+    if (i < text.length) {
+        document.getElementById("typewriter").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 40);
+    }
+}
+typeWriter();
+
+/* PASSAGGIO AUTOMATICO ALLA PAGINA ROSA */
+setTimeout(() => {
+    document.getElementById("hacker-screen").style.display = "none";
+    document.getElementById("final-screen").style.display = "block";
+}, 8000); // 8 secondi di effetto hacker
+</script>
 
 </body>
 </html>
