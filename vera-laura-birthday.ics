@@ -1,18 +1,50 @@
 BEGIN:VCALENDAR
 VERSION:2.0
-PRODID:-//mio-invito//EN
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
+PRODID:-//invito-veralaura//IT
 
 BEGIN:VEVENT
-UID:invito-veralaura-001@mannajalavita.github.io
-DTSTAMP:20251207T120000Z
+UID:vera-laura-birthday-2025@example.com
+DTSTAMP:20251101T120000Z
+
 DTSTART:20251220T190000Z
 DTEND:20251221T040000Z
-SUMMARY:Festa di Compleanno della mia migliore amica Vera Laura 🎉
-DESCRIPTION:Buon compleanno a me! Vi aspetto a partire dalle ore 20:00...tutti eleganti, mi raccomando! Dove? È un segreto! XOXO Vera Laura. Conferma qui la tua presenza: https://forms.gle/ELYF49qR96kRmqQb9
+
+SUMMARY:❤️ Festa di Compleanno della mia migliore amica Vera Laura ❤️
 LOCATION:È un segreto 🤫
+
+DESCRIPTION:Buon compleanno a me!\nVi aspetto a partire dalle ore 20:00...tutti eleganti, mi raccomando!\nDove? È un segreto!\n\nXOXO Vera Laura.\nConferma qui la tua presenza: https://forms.gle/bTDBzrrAZhvHoEqQ9
+
+BEGIN:VALARM
+TRIGGER:-P2D
+ACTION:DISPLAY
+DESCRIPTION:Promemoria – Mancano 2 giorni!
+END:VALARM
+
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:Promemoria – Mancano 24 ore!
+END:VALARM
+
+BEGIN:VALARM
+TRIGGER:-PT12H
+ACTION:DISPLAY
+DESCRIPTION:Promemoria – Mancano 12 ore!
+END:VALARM
+
+BEGIN:VALARM
+TRIGGER:-PT1H
+ACTION:DISPLAY
+DESCRIPTION:Promemoria – Mancano 60 minuti!
+END:VALARM
+
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Promemoria – Mancano 30 minuti!
+END:VALARM
+
 END:VEVENT
-
 END:VCALENDAR
-
