@@ -2,113 +2,174 @@
 <html lang="it">
 <head>
 <meta charset="UTF-8">
-<title>Festa Vera Laura</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invito festa Vera Laura</title>
 
 <style>
+
+/* --- SCHERMATA HACKER --- */
 body {
-    background: linear-gradient(180deg, #fff0f6, #ffe6f2, #fce4ff);
+    margin: 0;
+    padding: 0;
+    font-family: monospace;
+    background: black;
+    color: #00ff55;
+    overflow: hidden;
+}
+
+#hacker-screen {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: black;
+    color: #00ff55;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
     text-align: center;
-    font-family: "Cinzel Decorative", serif;
-    overflow-x: hidden;
+    padding: 20px;
+    z-index: 9999;
 }
 
-/* Testo iniziale */
-.invito-linea {
-    font-size: 22px;
-    color: #b30086;
+.matrix { font-size: 20px; white-space: nowrap; position: absolute; top: 0; left: 0; color: #00ff55; opacity: 0.7; }
+
+/* --- PAGINA ROSA --- */
+#real-page {
+    display: none;
+    height: 100vh;
+    overflow-y: auto;
+    background: linear-gradient(180deg, #ffcef2, #ffd9ec);
+    text-align: center;
+    font-family: "Pacifico", cursive;
+    color: #d63384;
+    padding: 30px;
+}
+
+/* Testi */
+#real-page h1 {
+    font-size: 1.9rem; 
     margin-top: 20px;
-    font-weight: 600;
 }
 
-/* HAPPY BIRTHDAY */
-.hb {
-    font-size: 36px;
-    margin-top: 10px;
-    color: #7a006c;
-    font-weight: bold;
-}
-
-/* VERA LAURA */
-.nome {
-    font-size: 46px;
-    font-weight: 700;
-    margin-top: -5px;
-    color: #8b007a;
-}
-
-/* GIF */
-.top-gif {
-    width: 220px;
-    margin-top: 10px;
-}
-
-.bottom-gif {
-    width: 180px;
-    margin: 30px;
+#real-page h2 {
+    font-size: 3rem; 
+    margin-top: 0;
+    text-transform: uppercase;
+    color: #c2185b;
 }
 
 /* Bottoni */
-.btn-container {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-}
-
 button {
-    padding: 12px 24px;
-    font-size: 18px;
-    font-weight: bold;
-    border-radius: 12px;
+    padding: 15px 25px;
+    font-size: 1.2rem;
+    margin: 20px;
     border: none;
+    border-radius: 12px;
     cursor: pointer;
-    background: #ffb7e6;
+    font-family: "Pacifico", cursive;
     transition: 0.3s;
-    font-family: "Cinzel", serif;
 }
 
-button:hover {
-    background: #ff95db;
+#btn-form {
+    background: #ff8ad9;
+    color: white;
+}
+#btn-form:hover { background: #ffa6e5; }
+
+#btn-ics {
+    background: #ff69b4;
+    color: white;
+}
+#btn-ics:hover { background: #ff85c8; }
+
+/* GIF decorative */
+.decoration {
+    width: 130px;
+    margin: 10px;
 }
 
-/* Messaggio "loading hacker" */
-#hacker-message {
-    font-family: monospace;
-    color: #ff0095;
-    margin-top: 20px;
-    white-space: pre-line;
-    display: none;
-}
 </style>
 </head>
+
 <body>
 
-<!-- MUSICA -->
-<audio autoplay loop>
-  <source src="https://files.freemusicarchive.org/storage-freemusicarchive-org/music/no_curator/Monk_Turner__Fascinoma/The_New_Contemplations_of_Monk_Turner/Fascinoma_-_03_-_La_Vie_en_Rose.mp3" type="audio/mpeg">
+<!-- AUDIO HIDDEN PLAYER -->
+<audio id="bg-music" loop>
+    <source src="AUDIO_LINK_HERE" type="audio/mp3">
 </audio>
 
-<!-- GIF SUPERIORE -->
-<img class="top-gif" src="https://i.pinimg.com/originals/24/1a/ca/241aca6abe6f2f512e206bff1d807ea5.gif">
-
-<!-- TESTO -->
-<div class="invito-linea">Sei stat* invitat* alla festa più bella che ci sia!</div>
-
-<div class="hb">HAPPY BIRTHDAY</div>
-<div class="nome">🎀 VERA LAURA 🎀</div>
-
-<!-- BOTTONI (invertiti) -->
-<div class="btn-container">
-    <button onclick="window.location.href='GOOGLE_FORM_LINK_HERE'">Conferma presenza</button>
-    <button onclick="window.location.href='ICS_FILE_LINK_HERE'">Scarica l’invito</button>
+<!-- SCHERMATA HACKER -->
+<div id="hacker-screen">
+    <div id="hacker-text"></div>
 </div>
 
-<!-- GIF PRINCIPESCHE SOTTO (duplicata ai lati) -->
-<div style="margin-top:40px;">
-    <img class="bottom-gif" src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMjhydmp0bmJpb2VsYjZucm9udzBxMTdjdW5qOXU0OThpZHMzZHB6YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/jSEvK8lnqeCfWASVNi/giphy.gif">
-    <img class="bottom-gif" src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMjhydmp0bmJpb2VsYjZucm9udzBxMTdjdW5qOXU0OThpZHMzZHB6YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/jSEvK8lnqeCfWASVNi/giphy.gif">
+<!-- PAGINA ROSA PRINCIPESCA -->
+<div id="real-page">
+
+    <!-- Cuori glitter -->
+    <img src="https://i.gifer.com/7VEg.gif" class="decoration">
+    <img src="https://i.gifer.com/7VEg.gif" class="decoration">
+
+    <h1>Sei stat* invitat* alla festa più bella che ci sia!</h1>
+    <h2>Happy Birthday Vera Laura 🎀</h2>
+
+    <!-- BOTTONI invertiti -->
+    <button id="btn-form" onclick="window.location.href='GOOGLE_FORM_LINK_HERE'">
+        💗 Conferma la tua presenza
+    </button>
+
+    <button id="btn-ics" onclick="window.location.href='ICS_LINK_HERE'">
+        📅 Scarica l'invito
+    </button>
+
+    <!-- Principesse danzanti -->
+    <br><br>
+    <img src="https://i.gifer.com/3MNB.gif" class="decoration">
+    <img src="https://i.gifer.com/3MNB.gif" class="decoration">
+
 </div>
+
+<script>
+
+/* --- TESTO HACKER --- */
+const hackerLines = [
+    "INITIALIZING SYSTEM BREACH...",
+    "ACCESSING SECURE FILES...",
+    "BY-PASSING FIREWALL...",
+    "INJECTING MALWARE PACKAGES...",
+    "DOWNLOADING PRIVATE DATA...",
+    "SYSTEM OVERRIDE IN PROGRESS...",
+    "### ATTENZIONE: DISPOSITIVO INFETTATO ###",
+    "ERRORE CRITICO: CONTROLLO COMPROMESSO",
+    "AVVIO PROCEDURA DI RESET OBBLIGATORIO...",
+    "",
+    "Scherzo 😄",
+    "Sei stat* invitat* alla festa di Vera Laura!"
+];
+
+let index = 0;
+function typeNextLine() {
+    if (index < hackerLines.length) {
+        document.getElementById("hacker-text").innerHTML += hackerLines[index] + "<br>";
+        index++;
+        setTimeout(typeNextLine, 400);
+    }
+}
+typeNextLine();
+
+/* --- FINE EFFETTO → MOSTRA PAGINA ROSA + MUSICA --- */
+setTimeout(() => {
+    document.getElementById("hacker-screen").style.display = "none";
+    document.body.style.overflow = "visible";
+    document.getElementById("real-page").style.display = "block";
+
+    const audio = document.getElementById("bg-music");
+    audio.volume = 0.45;
+    audio.play().catch(()=>{});
+}, 7000);
+
+</script>
 
 </body>
 </html>
