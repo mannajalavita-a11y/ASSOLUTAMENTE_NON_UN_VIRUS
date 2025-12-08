@@ -32,43 +32,27 @@ body {
     z-index: 9999;
 }
 
+.matrix { font-size: 20px; white-space: nowrap; position: absolute; top: 0; left: 0; color: #00ff55; opacity: 0.7; }
+
 /* --- PAGINA ROSA --- */
 #real-page {
     display: none;
-    min-height: 100vh;
+    height: 100vh;
     overflow-y: auto;
     background: linear-gradient(180deg, #ffcef2, #ffd9ec);
     text-align: center;
-    font-family: "Pacifico", cursive;
+    font-family: 'Pacifico', cursive;
     color: #d63384;
     padding: 30px;
     position: relative;
 }
 
-/* Glitter ai lati */
-.glitter-left, .glitter-right {
-    position: fixed;
-    top: 0;
-    width: 50px;
-    height: 100%;
-    pointer-events: none;
-    z-index: 10;
-    animation: sparkleFall 5s linear infinite;
-}
-
-.glitter-left { left: 0; }
-.glitter-right { right: 0; }
-
-@keyframes sparkleFall {
-    0% { transform: translateY(-100%); }
-    100% { transform: translateY(100%); }
-}
-
-/* Testi con sparkle */
+/* Testi modificati */
 #real-page h1 {
     font-size: 1.5rem; 
     margin-top: 20px;
-    animation: textSparkle 2s infinite;
+    position: relative;
+    animation: sparkle 2s infinite;
 }
 
 #real-page h2 {
@@ -76,17 +60,20 @@ body {
     margin-top: 10px;
     text-transform: uppercase;
     color: #c2185b;
-    animation: textSparkle 2s infinite;
+    position: relative;
+    animation: sparkle 2s infinite;
 }
 
 #real-page .nome {
     font-size: 3.5rem;
     margin-top: 5px;
     color: #8b007a;
-    animation: textSparkle 2s infinite;
+    position: relative;
+    animation: sparkle 2s infinite;
 }
 
-@keyframes textSparkle {
+/* Sparkle effect */
+@keyframes sparkle {
     0% { text-shadow: 0 0 2px #fff, 0 0 5px #ffb6c1; }
     50% { text-shadow: 0 0 4px #fff, 0 0 12px #ff69b4; }
     100% { text-shadow: 0 0 2px #fff, 0 0 5px #ffb6c1; }
@@ -100,7 +87,7 @@ button {
     border: none;
     border-radius: 12px;
     cursor: pointer;
-    font-family: "Pacifico", cursive;
+    font-family: 'Pacifico', cursive;
     transition: 0.3s;
 }
 
@@ -143,11 +130,11 @@ button {
     <div class="nome">🎀 VERA LAURA 🎀</div>
 
     <!-- BOTTONI invertiti -->
-    <button onclick="window.open('https://forms.gle/aQfoGeQGaRkpiAbs6', '_blank')">
-    💗 Conferma la tua presenza
-</button>
+    <button id="btn-form" onclick="window.location.href='GOOGLE_FORM_LINK_HERE'">
+        💗 Conferma la tua presenza
+    </button>
 
-    <button id="btn-ics" onclick="window.location.href='https://raw.githubusercontent.com/mannajalavita-a11y/Pagina-invito-VL/refs/heads/main/vera-laura-birthday.ics'">
+    <button id="btn-ics" onclick="window.location.href='ICS_LINK_HERE'">
         📅 Scarica l'invito
     </button>
 
@@ -159,7 +146,6 @@ button {
 </div>
 
 <script>
-
 /* --- TESTO HACKER --- */
 const hackerLines = [
     "INITIALIZING SYSTEM BREACH...",
@@ -167,13 +153,13 @@ const hackerLines = [
     "ANALISI GERMI SU PAVIMENTO...",
     "RILEVATI MICROBI SU SCHERMO...",
     "ACCENSIONE ASPIRAPOLVERE...",
-    "ELIMINAZIONE MACCHIE",
+    "ELIMINAZIONE MACCHIE...",
     "DOWNLOADING PRIVATE DATA...",
     "### ATTENZIONE: DISPOSITIVO NON SANIFICATO ###",
     "ERRORE CRITICO: PAZIENZA COMPROMESSA",
     "AVVIO PROCEDURA DI SANIFICAZIONE OBBLIGATORIA...",
     "",
-    "HACKERAGGIO COMPLEATATO...INVITO FORZATO INOLTRATO"
+    "HACKERAGGIO COMPLETATO... INVITO FORZATO INOLTRATO"
 ];
 
 let index = 0;
@@ -197,8 +183,3 @@ setTimeout(() => {
 
 </body>
 </html>
-
-
-
-
-
