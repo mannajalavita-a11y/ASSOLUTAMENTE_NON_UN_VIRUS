@@ -240,10 +240,39 @@ function updateCountdown() {
 }
 updateCountdown();
 
+
+
+    <script>
+async function downloadICS() {
+  try {
+    const url = 'https://raw.githubusercontent.com/mannajalavita-a11y/Pagina-invito-VL/main/vera-laura-birthday.ics';
+    // fetch il file come blob
+    const res = await fetch(url);
+    if (!res.ok) throw new Error('Impossibile scaricare il file: ' + res.status);
+    const blob = await res.blob();
+
+    // crea un link temporaneo e fornisci il nome file suggerito
+    const filename = 'vera-laura-birthday.ics';
+    const blobUrl = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = blobUrl;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    window.URL.revokeObjectURL(blobUrl);
+  } catch (err) {
+    console.error(err);
+    alert('Errore durante il download. Prova ad aprire il link direttamente: ' + err.message);
+  }
+}
+</script>
+
 </script>
 
 </body>
 </html>
+
 
 
 
