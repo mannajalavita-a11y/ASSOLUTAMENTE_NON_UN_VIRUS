@@ -24,6 +24,7 @@ body {
     background: black;
     color: #00ff55;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     font-size: 1.3rem;
@@ -37,7 +38,7 @@ body {
 /* --- PAGINA ROSA --- */
 #real-page {
     display: none;
-    height: 100vh;
+    min-height: 100vh;
     overflow-y: auto;
     background: linear-gradient(180deg, #ffcef2, #ffd9ec);
     text-align: center;
@@ -109,6 +110,29 @@ button {
     margin: 10px;
 }
 
+/* Barra di caricamento hacker */
+#progress-bar-container {
+    width: 80%;
+    height: 20px;
+    background-color: #111;
+    border: 1px solid #0f0;
+    margin: 20px auto;
+    display: none;
+}
+
+#progress-bar {
+    height: 100%;
+    width: 0%;
+    background-color: #0f0;
+}
+
+/* Countdown */
+#countdown {
+    font-size: 22px;
+    margin: 15px 0 25px 0;
+    color: #d63384;
+}
+
 </style>
 </head>
 
@@ -117,6 +141,9 @@ button {
 <!-- SCHERMATA HACKER -->
 <div id="hacker-screen">
     <div id="hacker-text"></div>
+    <div id="progress-bar-container">
+      <div id="progress-bar"></div>
+    </div>
 </div>
 
 <!-- PAGINA ROSA PRINCIPESCA -->
@@ -128,20 +155,21 @@ button {
     <h1>Sei stat* invitat* alla festa più bella che ci sia!</h1>
     <h2>HAPPY BIRTHDAY</h2>
     <div class="nome">🎀 VERA LAURA 🎀</div>
+    <div id="countdown"></div>
 
     <!-- BOTTONI invertiti -->
-    <button id="btn-form" onclick="window.location.href='GOOGLE_FORM_LINK_HERE'">
+    <button id="btn-form" onclick="window.open('https://forms.gle/aQfoGeQGaRkpiAbs6', '_blank')">
         💗 Conferma la tua presenza
     </button>
 
-    <button id="btn-ics" onclick="window.location.href='ICS_LINK_HERE'">
+    <button id="btn-ics" onclick="window.open('https://raw.githubusercontent.com/mannajalavita-a11y/Pagina-invito-VL/refs/heads/main/vera-laura-birthday.ics', '_blank')">
         📅 Scarica l'invito
     </button>
 
     <!-- Principessa inferiore GIF duplicata -->
     <br><br>
     <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMjhydmp0bmJpb2VsYjZucm9udzBxMTdjdW5qOXU0OThpZHMzZHB6YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/jSEvK8lnqeCfWASVNi/giphy.gif" class="decoration">
-    <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMjhydmp0bmJpb2VsYjZucm9udzBxMTdjdW5qOXU0OThpZHMzZHB6YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/jSEvK8lnqeCfWASVNi/giphy.gif" class="decoration">
+    <img src="https://www.picgifs.com/glitter-gifs/d/disney-princesses/picgifs-disney-princesses-5141696.gif" class="decoration">
 
 </div>
 
@@ -157,27 +185,60 @@ const hackerLines = [
     "DOWNLOADING PRIVATE DATA...",
     "### ATTENZIONE: DISPOSITIVO NON SANIFICATO ###",
     "ERRORE CRITICO: PAZIENZA COMPROMESSA",
-    "AVVIO PROCEDURA DI SANIFICAZIONE OBBLIGATORIA...",
-    "",
-    "HACKERAGGIO COMPLETATO... INVITO FORZATO INOLTRATO"
+    "AVVIO PROCEDURA DI SANIFICAZIONE OBBLIGATORIA..."
 ];
 
+const finalMessage = "HACKERAGGIO COMPLETATO... INVITO FORZATO INOLTRATO";
 let index = 0;
 function typeNextLine() {
+    const container = document.getElementById("hacker-text");
     if (index < hackerLines.length) {
-        document.getElementById("hacker-text").innerHTML += hackerLines[index] + "<br>";
+        container.innerHTML += hackerLines[index] + "<br>";
         index++;
         setTimeout(typeNextLine, 400);
+    } else {
+        // Mostra la barra di caricamento leggermente più veloce
+        const progressContainer = document.getElementById("progress-bar-container");
+        progressContainer.style.display = "block";
+        let progress = 0;
+        const bar = document.getElementById("progress-bar");
+        const loading = setInterval(() => {
+            progress += 2;
+            bar.style.width = progress + "%";
+            if (progress >= 100) {
+                clearInterval(loading);
+                container.innerHTML += "<br>" + finalMessage;
+                // Mostra la pagina rosa dopo 3,5 secondi
+                setTimeout(() => {
+                    document.getElementById("hacker-screen").style.display = "none";
+                    document.body.style.overflow = "visible";
+                    document.getElementById("real-page").style.display = "block";
+                }, 3500);
+            }
+        }, 70); // circa 3,5 secondi più breve rispetto prima
     }
 }
 typeNextLine();
 
-/* --- FINE EFFETTO → MOSTRA PAGINA ROSA --- */
-setTimeout(() => {
-    document.getElementById("hacker-screen").style.display = "none";
-    document.body.style.overflow = "visible";
-    document.getElementById("real-page").style.display = "block";
-}, 7000);
+/* --- Countdown compleanno --- */
+function updateCountdown() {
+    const targetDate = new Date("December 17, 2025 00:00:00");
+    const now = new Date();
+    const diff = targetDate - now;
+
+    if (diff <= 0) {
+        document.getElementById("countdown").innerHTML = "È IL GRANDE GIORNO! 🎉";
+        return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+
+    document.getElementById("countdown").innerHTML = `Mancano ${days} giorni, ${hours} ore e ${minutes} minuti.`;
+    requestAnimationFrame(updateCountdown);
+}
+updateCountdown();
 
 </script>
 
