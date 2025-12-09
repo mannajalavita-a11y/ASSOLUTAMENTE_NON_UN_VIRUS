@@ -1,4 +1,188 @@
-<!-- BOTTONI -->
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🦠 HBVL27 - SCANSIONE VIRUS-GERMI-BATTERI-POLVERE 🪅</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Baguet+Script&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* --- SCHERMATA HACKER --- */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: monospace;
+    background: black;
+    color: #00ff55;
+    overflow: hidden;
+}
+
+#hacker-screen {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: black;
+    color: #00ff55;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    text-align: center;
+    padding: 20px;
+    z-index: 9999;
+}
+
+.matrix { font-size: 20px; white-space: nowrap; position: absolute; top: 0; left: 0; color: #00ff55; opacity: 0.7; }
+
+/* --- PAGINA ROSA --- */
+#real-page {
+    display: none;
+    min-height: 100vh;
+    overflow-y: auto;
+    background: linear-gradient(180deg, #ffcef2, #ffd9ec);
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+    color: #d63384;
+    padding: 30px;
+    position: relative;
+}
+
+/* Titoli e nome - Baguet Script */
+#real-page h1,
+#real-page .nome {
+    font-family: 'Baguet Script', cursive;
+    position: relative;
+    animation: sparkle 2s infinite;
+}
+
+#real-page h1 {
+    font-size: 3.0rem; 
+    margin-top: 10px;
+    color: #c2185b;
+    font-family: 'Pacifico', cursive; /* stesso font di "Sei stat* invitat*" */
+    position: relative;
+    animation: sparkle 2s infinite;
+}
+
+#real-page .nome {
+    font-size: 2.8rem; /* più grande */
+    margin-top: 10px;
+    color: #8b007a;
+    position: relative;
+    animation: sparkle 2s infinite;
+}
+
+/* Sparkle effect */
+@keyframes sparkle {
+    0% { text-shadow: 0 0 2px #fff, 0 0 5px #ffb6c1; }
+    50% { text-shadow: 0 0 4px #fff, 0 0 12px #ff69b4; }
+    100% { text-shadow: 0 0 2px #fff, 0 0 5px #ffb6c1; }
+}
+
+/* Contenitore bottoni tondi affiancati */
+.button-container {
+    display: flex;
+    justify-content: center;  /* centra i bottoni orizzontalmente */
+    gap: 40px;                /* spazio tra i bottoni */
+    margin-top: 30px;
+}
+
+/* Bottoni tondi molto grandi */
+button.round {
+    width: 120px;          /* larghezza */
+    height: 120px;         /* altezza uguale per renderlo tondo */
+    border-radius: 50%;    /* tondo perfetto */
+    border: none;
+    cursor: pointer;
+    font-size: 4rem;       /* dimensione dell'emoticon */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transition: 0.3s;
+}
+
+/* Bottoni con sfondi rosa diversi */
+button.round#btn-form {
+    background: #ff66b2;   /* rosa acceso */
+}
+button.round#btn-form:hover {
+    background: #ff3399;   /* rosa più intenso al passaggio */
+}
+
+button.round#btn-ics {
+    background: #ff99cc;   /* rosa chiaro */
+}
+button.round#btn-ics:hover {
+    background: #ff66b2;   /* rosa più scuro al passaggio */
+}
+
+/* GIF decorative */
+.decoration {
+    width: 130px;
+    margin: 10px;
+}
+
+/* Barra di caricamento hacker */
+#progress-bar-container {
+    width: 80%;
+    height: 20px;
+    background-color: #111;
+    border: 1px solid #0f0;
+    margin: 20px auto;
+    display: none;
+}
+
+#progress-bar {
+    height: 100%;
+    width: 0%;
+    background-color: #0f0;
+}
+
+/* Countdown */
+#countdown {
+    font-size: 22px;
+    margin: 40px 0 35px 0; /* più spazio sopra e sotto */
+    color: #d63384;
+    font-weight: bold;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- SCHERMATA HACKER -->
+<div id="hacker-screen">
+    <div id="hacker-text"></div>
+    <div id="progress-bar-container">
+      <div id="progress-bar"></div>
+    </div>
+</div>
+
+<!-- PAGINA ROSA PRINCIPESCA -->
+<div id="real-page">
+
+    <!-- Cuore superiore GIF -->
+    <img src="https://i.pinimg.com/originals/24/1a/ca/241aca6abe6f2f512e206bff1d807ea5.gif" class="decoration">
+
+    <h1>Happy 27th Birthday</h1>
+   <div class="nome">🎀 Vera Laura 🎀</div>
+    <div id="countdown"></div>
+
+<p style="font-size: 20px; color: #c2185b; margin: 20px 0;">
+    Vi aspetto il 20 dicembre a partire dalle ore 20:00 per festeggiare insieme un altro anno in cui ho avuto sempre e solo ragione!
+</p>
+    
+    <p style="font-size: 20px; color: #c2185b; margin: 20px 0;">
+    Dove? Lo scoprirete solo premendo su questi due bottoni:
+</p>
+    
+    <!-- BOTTONI -->
 <div class="button-container">
     <!-- Bottone 💗 per il form -->
     <button class="round" id="btn-form" onclick="window.open('https://forms.gle/YAFVJWv2R8nHUGMd6', '_blank')">
@@ -49,3 +233,84 @@ button.round#btn-ics:hover {
     background: #ff66b2;
 }
 </style>
+    
+    <!-- Principessa inferiore GIF duplicata -->
+    <br><br>
+    <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMjhydmp0bmJpb2VsYjZucm9udzBxMTdjdW5qOXU0OThpZHMzZHB6YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/jSEvK8lnqeCfWASVNi/giphy.gif" class="decoration">
+    <img src="https://www.photofunky.net/output/image/e/1/b/a/e1ba35/photofunky.gif" class="decoration">
+    
+</div>
+
+<script>
+/* --- TESTO HACKER --- */
+const hackerLines = [
+    "INITIALIZING SYSTEM BREACH...",
+    "BY-PASSING FIREWALL...",
+    "ANALISI GERMI SU PAVIMENTO...",
+    "RILEVATI MICROBI SU SCHERMO...",
+    "ACCENSIONE ASPIRAPOLVERE...",
+    "ELIMINAZIONE MACCHIE...",
+    "DOWNLOADING PRIVATE DATA...",
+    "### ATTENZIONE: DISPOSITIVO NON SANIFICATO ###",
+    "ERRORE CRITICO: PAZIENZA COMPROMESSA",
+    "AVVIO PROCEDURA DI SANIFICAZIONE OBBLIGATORIA..."
+];
+
+const finalMessage = "HACKERAGGIO COMPLETATO... INVITO FORZATO INOLTRATO";
+let index = 0;
+function typeNextLine() {
+    const container = document.getElementById("hacker-text");
+    if (index < hackerLines.length) {
+        container.innerHTML += hackerLines[index] + "<br>";
+        index++;
+        setTimeout(typeNextLine, 400);
+    } else {
+        const progressContainer = document.getElementById("progress-bar-container");
+        progressContainer.style.display = "block";
+        let progress = 0;
+        const bar = document.getElementById("progress-bar");
+        const loading = setInterval(() => {
+            progress += 2;
+            bar.style.width = progress + "%";
+            if (progress >= 100) {
+                clearInterval(loading);
+                container.innerHTML += "<br>" + finalMessage;
+                setTimeout(() => {
+                    document.getElementById("hacker-screen").style.display = "none";
+                    document.body.style.overflow = "visible";
+                    document.getElementById("real-page").style.display = "block";
+                }, 3500);
+            }
+        }, 70);
+    }
+}
+typeNextLine();
+
+/* --- Countdown compleanno --- */
+function updateCountdown() {
+    const targetDate = new Date("December 17, 2025 00:00:00"); // aggiorna ora se serve
+    const now = new Date();
+    const diff = targetDate - now;
+
+    if (diff <= 0) {
+        document.getElementById("countdown").innerHTML = "<strong>🎉 È IL GRANDE GIORNO! (FATEMI GLI AUGURI) 🎉</strong>";
+        return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60); // aggiungi i secondi
+
+    document.getElementById("countdown").innerHTML =
+      `<strong>Mancano ${days} giorni, ${hours} ore, ${minutes} minuti e ${seconds} secondi.</strong>`;
+
+    requestAnimationFrame(updateCountdown); // richiama la funzione continuamente senza aggiornare la pagina
+}
+
+updateCountdown();
+
+</script>
+
+</body>
+</html>
