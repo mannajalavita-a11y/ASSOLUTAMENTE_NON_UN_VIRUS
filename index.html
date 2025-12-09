@@ -75,9 +75,11 @@ body {
 }
 
 #real-page .nome {
-    font-size: 3.5rem;
+    font-size: 5rem; /* più grande */
     margin-top: 5px;
     color: #8b007a;
+    position: relative;
+    animation: sparkle 2s infinite;
 }
 
 /* Sparkle effect */
@@ -138,6 +140,7 @@ button {
     font-size: 22px;
     margin: 15px 0 25px 0;
     color: #d63384;
+    font-weight: bold; /* grassetto */
 }
 
 </style>
@@ -236,16 +239,17 @@ function updateCountdown() {
     const diff = targetDate - now;
 
     if (diff <= 0) {
-        document.getElementById("countdown").innerHTML = "È IL GRANDE GIORNO! 🎉";
+        document.getElementById("countdown").innerHTML = "🎉 È IL GRANDE GIORNO! 🎉";
         return;
     }
 
     const days = Math.floor(diff / (1000 * 60 * 60 * 24));
     const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
     const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
 
-    document.getElementById("countdown").innerHTML = `Mancano ${days} giorni, ${hours} ore e ${minutes} minuti.`;
-    requestAnimationFrame(updateCountdown);
+    document.getElementById("countdown").innerHTML =
+  `Mancano ${days} giorni, ${hours} ore, ${minutes} minuti e ${seconds} secondi.`;
 }
 updateCountdown();
 
