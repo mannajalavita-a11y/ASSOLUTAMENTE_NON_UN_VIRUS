@@ -83,16 +83,30 @@ body {
     100% { text-shadow: 0 0 2px #fff, 0 0 5px #ffb6c1; }
 }
 
-/* Bottoni */
+/* Stile comune per entrambi i bottoni */
 button {
-    padding: 15px 25px;
-    font-size: 1.2rem;
+    padding: 15px 25px;   /* dimensioni */
+    font-size: 1.2rem;    /* testo */
     margin: 20px;
     border: none;
-    border-radius: 25px; /* bottoni più tondi */
+    border-radius: 12px;
     cursor: pointer;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Pacifico', cursive;
     transition: 0.3s;
+}
+
+/* Colori diversi ma stessa grandezza */
+#btn-form {
+    background: #ff8ad9;
+    color: white;
+}
+#btn-form:hover { background: #ffa6e5; }
+
+#btn-ics {
+    background: #ff69b4;
+    color: white;
+}
+#btn-ics:hover { background: #ff85c8; }
 }
 
 #btn-form {
@@ -172,11 +186,11 @@ button {
     
     <!-- BOTTONI -->
     <button id="btn-form" onclick="window.open('https://forms.gle/YAFVJWv2R8nHUGMd6', '_blank')">
-        💗 Conferma la tua presenza
+        💗 Conferma la tua presenza 💗
     </button>
 
     <a href="https://github.com/mannajalavita-a11y/ASSOLUTAMENTE_NON_UN_VIRUS/releases/download/v1.0/vera-laura-birthday.ics" download>
-    <button id="btn-ics">📅 Scarica l'invito</button>
+    <button id="btn-ics">📅 Scarica l'invito 📅</button>
     </a>
 
     <!-- Principessa inferiore GIF duplicata -->
