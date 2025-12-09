@@ -277,12 +277,12 @@ document.getElementById("btn-decline").addEventListener("click", enterRealPage);
 
 /* --- Countdown --- */
 function updateCountdown() {
-    const targetDate = new Date("December 17, 2025 00:00:00");
+    const targetDate = new Date("December 20, 2025 20:30:00");
     const now = new Date();
     const diff = targetDate - now;
 
     if (diff <= 0) {
-        document.getElementById("countdown").innerHTML = "<strong>🎉 È IL GRANDE GIORNO! 🎉</strong>";
+        document.getElementById("countdown").innerHTML = "<strong>LA FESTA È INIZIATA! SEI IN RITARDO 😡</strong>";
         return;
     }
 
