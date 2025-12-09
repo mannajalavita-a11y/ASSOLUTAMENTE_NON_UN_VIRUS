@@ -182,35 +182,36 @@ button.round#btn-ics:hover {
     Dove? Lo scoprirete solo premendo su questi due bottoni:
 </p>
     
-    <!-- BOTTONI -->
+    <!-- BOTTONI TONDI AFFIANCATI -->
 <div class="button-container">
-    <!-- Bottone 💗 per il form -->
+    <!-- Bottone cuore per il form -->
     <button class="round" id="btn-form" onclick="window.open('https://forms.gle/YAFVJWv2R8nHUGMd6', '_blank')">
         💗
     </button>
 
-    <!-- Bottone 📅 per scaricare l'ics -->
-    <button class="round" id="btn-ics" onclick="window.open('https://github.com/mannajalavita-a11y/ASSOLUTAMENTE_NON_UN_VIRUS/releases/download/v1.0/vera-laura-birthday.ics', '_blank')">
-        📅
-    </button>
+    <!-- Bottone calendario per scaricare .ics -->
+    <a href="https://github.com/mannajalavita-a11y/ASSOLUTAMENTE_NON_UN_VIRUS/releases/download/v1.0/vera-laura-birthday.ics" download>
+        <button class="round" id="btn-ics">📅</button>
+    </a>
 </div>
 
-<!-- CSS aggiuntivo per bottoni tondi affiancati -->
 <style>
+/* Contenitore bottoni tondi affiancati */
 .button-container {
     display: flex;
     justify-content: center;
-    gap: 40px;
+    gap: 40px; 
     margin-top: 30px;
 }
 
+/* Bottoni tondi molto grandi */
 button.round {
-    width: 150px;          /* più grandi */
-    height: 150px;         
-    border-radius: 50%;
+    width: 1300px;          
+    height: 130px;         
+    border-radius: 50%;    
     border: none;
     cursor: pointer;
-    font-size: 5rem;       /* dimensione emoticon */
+    font-size: 4.5rem;     
     display: flex;
     align-items: center;
     justify-content: center;
@@ -218,21 +219,22 @@ button.round {
     transition: 0.3s;
 }
 
-/* Sfondo bottoni rosa diversi */
+/* Sfondo rosa diversi */
 button.round#btn-form {
-    background: #ff66b2;
+    background: #ff66b2;   
 }
 button.round#btn-form:hover {
-    background: #ff3399;
+    background: #ff3399;   
 }
 
 button.round#btn-ics {
-    background: #ff99cc;
+    background: #ff99cc;   
 }
 button.round#btn-ics:hover {
-    background: #ff66b2;
+    background: #ff66b2;   
 }
 </style>
+
     
     <!-- Principessa inferiore GIF duplicata -->
     <br><br>
