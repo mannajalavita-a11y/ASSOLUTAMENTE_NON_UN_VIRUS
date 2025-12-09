@@ -6,11 +6,11 @@
 <title>🦠 HBVL27 - SCANSIONE VIRUS-GERMI-BATTERI-POLVERE 🪅</title>
 
 <!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Baguet+Script&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Baguet+Script&family=Raleway:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
 
 <style>
 
-/* --- SCHERMATA HACKER --- */
+/* --- GENERALE --- */
 body {
     margin: 0;
     padding: 0;
@@ -20,6 +20,7 @@ body {
     overflow: hidden;
 }
 
+/* --- SCHERMATA HACKER --- */
 #hacker-screen {
     position: fixed;
     top: 0; left: 0;
@@ -30,19 +31,59 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: 1.3rem;
     text-align: center;
     padding: 20px;
     z-index: 9999;
+    font-size: 1.2rem;
 }
 
-.matrix { 
-    font-size: 20px; 
-    white-space: nowrap; 
-    position: absolute; 
-    top: 0; left: 0; 
-    color: #00ff55; 
-    opacity: 0.7; 
+#progress-bar-container {
+    width: 80%;
+    height: 20px;
+    background-color: #111;
+    border: 1px solid #0f0;
+    margin-top: 20px;
+    display: none;
+}
+#progress-bar {
+    height: 100%;
+    width: 0%;
+    background-color: #0f0;
+}
+
+/* --- SCHERMATA INTERMEDIA --- */
+#intermediate-screen {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: black;
+    color: #00ff55;
+    text-align: center;
+    font-size: 1.6rem;
+    padding-top: 120px;
+    z-index: 9998;
+}
+
+.choice-buttons {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+.choice-buttons button {
+    background: transparent;
+    border: 2px solid #00ff55;
+    color: #00ff55;
+    padding: 12px 20px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.choice-buttons button:hover {
+    background: #00ff55;
+    color: black;
 }
 
 /* --- PAGINA ROSA --- */
@@ -58,42 +99,33 @@ body {
     position: relative;
 }
 
-/* Titoli e nome - Sparkle effect */
-.sparkle {
-    position: relative;
-    animation: sparkle 2s infinite;
+/* Fade-in sequenziale */
+.fade {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1.2s forwards;
+}
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
+/* Titoli */
 #real-page h1 {
-    font-size: 3rem;
-    margin-top: 10px;
-    color: #c2185b;
     font-family: 'Pacifico', cursive;
+    font-size: 3rem;
+    color: #c2185b;
 }
 
 #real-page .nome {
-    font-size: 2.5rem;
-    margin-top: 10px;
+    font-family: 'Baguet Script', cursive;
+    font-size: 2.8rem;
     color: #8b007a;
-    font-family: 'Pacifico', cursive;
-    font-weight: bold;
 }
 
-/* Sparkle effect */
-@keyframes sparkle {
-    0% { text-shadow: 0 0 2px #fff, 0 0 5px #ffb6c1; }
-    50% { text-shadow: 0 0 4px #fff, 0 0 12px #ff69b4; }
-    100% { text-shadow: 0 0 2px #fff, 0 0 5px #ffb6c1; }
-}
-
-/* Testi standard della pagina rosa */
-.real-page-text {
-    font-size: 20px;
-    color: #c2185b;
-    margin: 20px 0;
-}
-
-/* Contenitore bottoni tondi affiancati */
+/* Bottoni tondi */
 .button-container {
     display: flex;
     justify-content: center;
@@ -101,142 +133,104 @@ body {
     margin-top: 30px;
 }
 
-/* Bottoni tondi grandi */
 button.round {
     width: 110px;
     height: 110px;
     border-radius: 50%;
     border: none;
     cursor: pointer;
-    font-size: 3.5rem;
+    font-size: 4rem;
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
-    transition: background 0.3s;
+    transition: 0.3s;
 }
 
-button.round#btn-form {
-    background: #ff66b2;
-}
-button.round#btn-form:hover {
-    background: #ff3399;
-}
+#btn-form { background: #ff66b2; }
+#btn-form:hover { background: #ff3399; }
 
-button.round#btn-ics {
-    background: #ff99cc;
-}
-button.round#btn-ics:hover {
-    background: #ff66b2;
-}
+#btn-ics { background: #ff99cc; }
+#btn-ics:hover { background: #ff66b2; }
 
-/* GIF decorative */
 .decoration {
     width: 130px;
     margin: 10px;
 }
 
-/* Barra di caricamento hacker */
-#progress-bar-container {
-    width: 80%;
-    height: 20px;
-    background-color: #111;
-    border: 1px solid #0f0;
-    margin: 20px auto;
-    display: none;
-}
-
-#progress-bar {
-    height: 100%;
-    width: 0%;
-    background-color: #0f0;
-}
-
-/* Countdown */
 #countdown {
     font-size: 22px;
-    margin: 40px 0 35px 0;
+    margin: 40px 0;
     color: #d63384;
     font-weight: bold;
 }
-
 </style>
 </head>
 
 <body>
 
+<!-- 🎧 AUDIO (INSERISCI QUI IL TUO FILE MP3) -->
+<audio id="bg-music" src="PERCORSO/DEL/TUO/AUDIO.mp3"></audio>
+
 <!-- SCHERMATA HACKER -->
 <div id="hacker-screen">
     <div id="hacker-text"></div>
-    <div id="progress-bar-container">
-      <div id="progress-bar"></div>
+    <div id="progress-bar-container"><div id="progress-bar"></div></div>
+</div>
+
+<!-- SCHERMATA INTERMEDIA -->
+<div id="intermediate-screen">
+    <div>ACCESSO RICHIESTO<br>CONFERMARE L’INVITO</div>
+    <div class="choice-buttons">
+        <button onclick="enterRealPage()">ACCETTA</button>
+        <button onclick="enterRealPage()">RIFIUTA</button>
     </div>
 </div>
 
-<!-- PAGINA ROSA PRINCIPESCA -->
+<!-- PAGINA ROSA -->
 <div id="real-page">
 
-    <!-- Placeholder audio -->
-    <audio id="birthday-audio" src="LINK_DEL_TUO_AUDIO.mp3" preload="auto"></audio>
+    <img src="https://i.pinimg.com/originals/24/1a/ca/241aca6abe6f2f512e206bff1d807ea5.gif" class="decoration fade" style="animation-delay:0.2s">
 
-    <!-- Cuore superiore GIF -->
-    <img src="https://i.pinimg.com/originals/24/1a/ca/241aca6abe6f2f512e206bff1d807ea5.gif" class="decoration">
+    <h1 class="fade" style="animation-delay:0.6s">Happy 27th Birthday</h1>
 
-    <h1 class="sparkle">Happy 27th Birthday</h1>
-    <div class="nome sparkle">🎀 Vera Laura 🎀</div>
-    <div id="countdown"></div>
+    <div class="nome fade" style="animation-delay:1.0s">🎀 Vera Laura 🎀</div>
 
-    <p class="real-page-text">
+    <div id="countdown" class="fade" style="animation-delay:1.4s"></div>
+
+    <p class="fade" style="animation-delay:1.8s; font-size:20px; color:#c2185b;">
         Vi aspetto il 20 dicembre a partire dalle ore 20:30 per festeggiare insieme un altro anno in cui ho avuto sempre e solo ragione!
     </p>
-    
-    <p class="real-page-text">
+
+    <p class="fade" style="animation-delay:2.2s; font-size:20px; color:#c2185b;">
         Dove? Lo scoprirete solo premendo su questi due bottoni:
     </p>
-    
-    <!-- Contenitore dei bottoni tondi affiancati -->
-    <div class="button-container">
-      <!-- Bottone 💗 per aprire il form -->
-      <button class="round" id="btn-form"
-              onclick="window.open('https://forms.gle/YAFVJWv2R8nHUGMd6', '_blank')"
-              type="button">
-        💗
-      </button>
 
-      <!-- Bottone 📅 per scaricare l'invito .ics -->
-      <button class="round" id="btn-ics"
-              onclick="window.open('https://github.com/mannajalavita-a11y/ASSOLUTAMENTE_NON_UN_VIRUS/releases/download/v1.0/vera-laura-birthday.ics', '_blank')"
-              type="button">
-        📅
-      </button>
+    <div class="button-container fade" style="animation-delay:2.6s">
+        <button class="round" id="btn-form" onclick="window.open('https://forms.gle/YAFVJWv2R8nHUGMd6','_blank')">💗</button>
+        <button class="round" id="btn-ics" onclick="window.open('https://github.com/mannajalavita-a11y/ASSOLUTAMENTE_NON_UN_VIRUS/releases/download/v1.0/vera-laura-birthday.ics','_blank')">📅</button>
     </div>
 
-    <!-- GIF decorative inferiori -->
-    <div style="margin-top: 30px;">
-        <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMjhydmp0bmJpb2VsYjZucm9udzBxMTdjdW5qOXU0OThpZHMzZHB6YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/jSEvK8lnqeCfWASVNi/giphy.gif" class="decoration">
-        <img src="https://www.photofunky.net/output/image/e/1/b/a/e1ba35/photofunky.gif" class="decoration">
-    </div>
-    
+    <img src="https://media1.giphy.com/media/jSEvK8lnqeCfWASVNi/giphy.gif" class="decoration fade" style="animation-delay:3.0s">
+    <img src="https://www.photofunky.net/output/image/e/1/b/a/e1ba35/photofunky.gif" class="decoration fade" style="animation-delay:3.4s">
+
 </div>
 
 <script>
-/* --- TESTO HACKER --- */
+/* --- TESTO HACKER + PROGRESS BAR --- */
 const hackerLines = [
     "INITIALIZING SYSTEM BREACH...",
     "BY-PASSING FIREWALL...",
     "ANALISI GERMI SU PAVIMENTO...",
     "RILEVATI MICROBI SU SCHERMO...",
     "ACCENSIONE ASPIRAPOLVERE...",
-    "ELIMINAZIONE MACCHIE...",
     "DOWNLOADING PRIVATE DATA...",
     "### ATTENZIONE: DISPOSITIVO NON SANIFICATO ###",
     "ERRORE CRITICO: PAZIENZA COMPROMESSA",
-    "AVVIO PROCEDURA DI SANIFICAZIONE OBBLIGATORIA..."
+    "AVVIO PROCEDURA DI SANIFICAZIONE..."
 ];
 
-const finalMessage = "HACKERAGGIO COMPLETATO... INVITO FORZATO INOLTRATO";
 let index = 0;
-
 function typeNextLine() {
     const container = document.getElementById("hacker-text");
     if (index < hackerLines.length) {
@@ -244,55 +238,59 @@ function typeNextLine() {
         index++;
         setTimeout(typeNextLine, 400);
     } else {
-        const progressContainer = document.getElementById("progress-bar-container");
-        progressContainer.style.display = "block";
+        document.getElementById("progress-bar-container").style.display = "block";
         let progress = 0;
         const bar = document.getElementById("progress-bar");
+
         const loading = setInterval(() => {
             progress += 2;
             bar.style.width = progress + "%";
+
             if (progress >= 100) {
                 clearInterval(loading);
-                container.innerHTML += "<br>" + finalMessage;
                 setTimeout(() => {
                     document.getElementById("hacker-screen").style.display = "none";
-                    document.body.style.overflow = "visible"; // ora si può scrollare
-                    document.getElementById("real-page").style.display = "block";
-
-                    // Avvia l'audio
-                    const audio = document.getElementById('birthday-audio');
-                    audio.play();
-                }, 3500);
+                    document.getElementById("intermediate-screen").style.display = "block";
+                }, 1200);
             }
         }, 70);
     }
 }
 typeNextLine();
 
-/* --- Countdown compleanno --- */
+/* --- ENTRA NELLA PAGINA REALE --- */
+function enterRealPage() {
+    document.getElementById("intermediate-screen").style.display = "none";
+    document.body.style.overflow = "visible";
+    document.getElementById("real-page").style.display = "block";
+
+    // fai partire la musica se presente
+    const audio = document.getElementById("bg-music");
+    if (audio) audio.play().catch(() => {});
+}
+
+/* --- Countdown --- */
 function updateCountdown() {
-    const targetDate = new Date("December 17, 2025 00:00:00"); 
+    const targetDate = new Date("December 17, 2025 00:00:00");
     const now = new Date();
     const diff = targetDate - now;
 
     if (diff <= 0) {
-        document.getElementById("countdown").innerHTML = "<strong>🎉 È IL GRANDE GIORNO! (FATEMI GLI AUGURI) 🎉</strong>";
+        document.getElementById("countdown").innerHTML = "<strong>🎉 È IL GRANDE GIORNO! 🎉</strong>";
         return;
     }
 
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-    const minutes = Math.floor((diff / (1000 * 60)) % 60);
-    const seconds = Math.floor((diff / 1000) % 60);
+    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const m = Math.floor((diff / (1000 * 60)) % 60);
+    const s = Math.floor((diff / 1000) % 60);
 
     document.getElementById("countdown").innerHTML =
-      `<strong>Mancano ${days} giorni, ${hours} ore, ${minutes} minuti e ${seconds} secondi.</strong>`;
+      `<strong>Mancano ${d} giorni, ${h} ore, ${m} minuti e ${s} secondi.</strong>`;
 
     requestAnimationFrame(updateCountdown);
 }
-
 updateCountdown();
-
 </script>
 
 </body>
