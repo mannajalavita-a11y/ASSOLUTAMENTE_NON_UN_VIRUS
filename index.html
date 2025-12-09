@@ -17,7 +17,7 @@ body {
     font-family: monospace;
     background: black;
     color: #00ff55;
-    overflow: hidden;
+    overflow: hidden;  /* BOOM: attivo solo durante hacker screen */
 }
 
 #hacker-screen {
@@ -51,7 +51,7 @@ body {
     position: relative;
 }
 
-/* Titoli e nome - Baguet Script */
+/* Titoli e nome */
 #real-page h1,
 #real-page .nome {
     font-family: 'Baguet Script', cursive;
@@ -63,17 +63,12 @@ body {
     font-size: 3.0rem; 
     margin-top: 10px;
     color: #c2185b;
-    font-family: 'Pacifico', cursive; /* stesso font di "Sei stat* invitat*" */
-    position: relative;
-    animation: sparkle 2s infinite;
 }
 
 #real-page .nome {
-    font-size: 2.8rem; /* più grande */
+    font-size: 2.8rem;
     margin-top: 10px;
     color: #8b007a;
-    position: relative;
-    animation: sparkle 2s infinite;
 }
 
 /* Sparkle effect */
@@ -86,19 +81,19 @@ body {
 /* Contenitore bottoni tondi affiancati */
 .button-container {
     display: flex;
-    justify-content: center;  /* centra i bottoni orizzontalmente */
-    gap: 40px;                /* spazio tra i bottoni */
+    justify-content: center;
+    gap: 40px;
     margin-top: 30px;
 }
 
-/* Bottoni tondi molto grandi */
+/* Bottoni tondi */
 button.round {
-    width: 110px;          /* larghezza */
-    height: 110px;         /* altezza uguale per renderlo tondo */
-    border-radius: 50%;    /* tondo perfetto */
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
     border: none;
     cursor: pointer;
-    font-size: 4rem;       /* dimensione dell'emoticon */
+    font-size: 4rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -106,20 +101,12 @@ button.round {
     transition: 0.3s;
 }
 
-/* Bottoni con sfondi rosa diversi */
-button.round#btn-form {
-    background: #ff66b2;   /* rosa acceso */
-}
-button.round#btn-form:hover {
-    background: #ff3399;   /* rosa più intenso al passaggio */
-}
+/* Bottoni rosa */
+button.round#btn-form { background: #ff66b2; }
+button.round#btn-form:hover { background: #ff3399; }
 
-button.round#btn-ics {
-    background: #ff99cc;   /* rosa chiaro */
-}
-button.round#btn-ics:hover {
-    background: #ff66b2;   /* rosa più scuro al passaggio */
-}
+button.round#btn-ics { background: #ff99cc; }
+button.round#btn-ics:hover { background: #ff66b2; }
 
 /* GIF decorative */
 .decoration {
@@ -127,7 +114,7 @@ button.round#btn-ics:hover {
     margin: 10px;
 }
 
-/* Barra di caricamento hacker */
+/* Barra di caricamento */
 #progress-bar-container {
     width: 80%;
     height: 20px;
@@ -146,7 +133,7 @@ button.round#btn-ics:hover {
 /* Countdown */
 #countdown {
     font-size: 22px;
-    margin: 40px 0 35px 0; /* più spazio sopra e sotto */
+    margin: 40px 0 35px 0;
     color: #d63384;
     font-weight: bold;
 }
@@ -164,117 +151,64 @@ button.round#btn-ics:hover {
     </div>
 </div>
 
-<!-- SCHERMATA DI SCELTA -->
-<div id="choice-screen" style="
-    display:none;
-    position:fixed; top:0; left:0;
-    width:100vw; height:100vh;
-    background:black;
-    color:#00ff55;
-    font-family:monospace;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    z-index:9998;">
-    
-    <p style="font-size:1.6rem; margin-bottom:30px; color:#00ff55;">
-        ACCESSO NON AUTORIZZATO<br>CONFERMA L'INVITO?
-    </p>
-
-    <div style="display:flex; gap:40px;">
-        <button onclick="enterRealPage()" style="
-            padding:15px 35px;
-            font-size:1.3rem;
-            background:none;
-            color:#00ff55;
-            border:2px solid #00ff55;
-            border-radius:12px;
-            cursor:pointer;">
-            ACCETTA
-        </button>
-
-        <button onclick="enterRealPage()" style="
-            padding:15px 35px;
-            font-size:1.3rem;
-            background:none;
-            color:#00ff55;
-            border:2px solid #00ff55;
-            border-radius:12px;
-            cursor:pointer;">
-            RIFIUTA
-        </button>
-    </div>
-</div>
-
 <!-- PAGINA ROSA -->
-<div id="real-page" style="display:none;">
+<div id="real-page">
 
-    <!-- AUDIO (INSERISCI QUI IL TUO FILE MP3) -->
-    <audio id="birthday-song">
-        <source src="TUO_FILE.mp3" type="audio/mpeg">
-    </audio>
+    <!-- QUI IL TUO AUDIO -->
+    <!-- Esempio:
+    <audio id="music" src="msc.mp3" autoplay loop></audio>
+    -->
 
-    <!-- Cuore superiore GIF -->
-    <img class="decoration fade-item" src="https://i.pinimg.com/originals/24/1a/ca/241aca6abe6f2f512e206bff1d807ea5.gif">
+    <img src="https://i.pinimg.com/originals/24/1a/ca/241aca6abe6f2f512e206bff1d807ea5.gif" class="decoration">
 
-    <h1 class="fade-item" style="animation-delay:0.3s;">Happy 27th Birthday</h1>
-    <div class="nome fade-item" style="animation-delay:0.6s;">🎀 Vera Laura 🎀</div>
+    <h1>Happy 27th Birthday</h1>
+    <div class="nome">🎀 Vera Laura 🎀</div>
+    <div id="countdown"></div>
 
-    <div id="countdown" class="fade-item" style="animation-delay:0.9s;"></div>
-
-    <p class="fade-item" style="animation-delay:1.2s; font-size:20px; color:#c2185b;">
-        Vi aspetto il 20 dicembre a partire dalle ore 20:30 per festeggiare insieme un altro anno
-        in cui ho avuto sempre e solo ragione!
+    <p style="font-size: 20px; color: #c2185b; margin: 20px 0;">
+        Vi aspetto il 20 dicembre a partire dalle ore 20:30 per festeggiare insieme un altro anno in cui ho avuto sempre e solo ragione!
     </p>
 
-    <p class="fade-item" style="animation-delay:1.5s; font-size:20px; color:#c2185b;">
-        Dove?<br>Lo scoprirete solo premendo su questi due bottoni:
+    <p style="font-size: 20px; color: #c2185b; margin: 20px 0;">
+        Dove? Lo scoprirete solo premendo su questi due bottoni:
     </p>
 
-    <!-- BOTTONI TONDI -->
-    <div class="button-container fade-item" style="animation-delay:1.8s;">
-        <button class="round" id="btn-form"
-                onclick="window.open('https://forms.gle/YAFVJWv2R8nHUGMd6', '_blank')">
-            💗
-        </button>
+    <div class="button-container">
+      <button class="round" id="btn-form"
+              onclick="window.open('https://forms.gle/YAFVJWv2R8nHUGMd6', '_blank')">
+        💗
+      </button>
 
-        <button class="round" id="btn-ics"
-                onclick="window.open('https://github.com/mannajalavita-a11y/ASSOLUTAMENTE_NON_UN_VIRUS/releases/download/v1.0/vera-laura-birthday.ics', '_blank')">
-            📅
-        </button>
+      <button class="round" id="btn-ics"
+              onclick="window.open('https://github.com/mannajalavita-a11y/ASSOLUTAMENTE_NON_UN_VIRUS/releases/download/v1.0/vera-laura-birthday.ics', '_blank')">
+        📅
+      </button>
     </div>
 
     <br><br>
-
-    <!-- GIF in fondo -->
-    <img class="decoration fade-item" style="animation-delay:2.1s;"
-         src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMjhydmp0bmJpb2VsYjZucm9udzBxMTdjdW5qOXU0OThpZHMzZHB6YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/jSEvK8lnqeCfWASVNi/giphy.gif">
-
-    <img class="decoration fade-item" style="animation-delay:2.4s;"
-         src="https://www.photofunky.net/output/image/e/1/b/a/e1ba35/photofunky.gif">
-
+    <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMjhydmp0bmJpb2VsYjZucm9udzBxMTdjdW5qOXU0OThpZHMzZHB6YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/jSEvK8lnqeCfWASVNi/giphy.gif" class="decoration">
+    <img src="https://www.photofunky.net/output/image/e/1/b/a/e1ba35/photofunky.gif" class="decoration">
+    
 </div>
 
 <script>
 /* --- TESTO HACKER --- */
 const hackerLines = [
- "INITIALIZING SYSTEM BREACH...",
- "BY-PASSING FIREWALL...",
- "ANALISI GERMI SU PAVIMENTO...",
- "RILEVATI MICROBI SU SCHERMO...",
- "ACCENSIONE ASPIRAPOLVERE...",
- "ELIMINAZIONE MACCHIE...",
- "DOWNLOADING PRIVATE DATA...",
- "### ATTENZIONE: DISPOSITIVO NON SANIFICATO ###",
- "ERRORE CRITICO: PAZIENZA COMPROMESSA",
- "AVVIO PROCEDURA DI SANIFICAZIONE OBBLIGATORIA..."
+    "INITIALIZING SYSTEM BREACH...",
+    "BY-PASSING FIREWALL...",
+    "ANALISI GERMI SU PAVIMENTO...",
+    "RILEVATI MICROBI SU SCHERMO...",
+    "ACCENSIONE ASPIRAPOLVERE...",
+    "ELIMINAZIONE MACCHIE...",
+    "DOWNLOADING PRIVATE DATA...",
+    "### ATTENZIONE: DISPOSITIVO NON SANIFICATO ###",
+    "ERRORE CRITICO: PAZIENZA COMPROMESSA",
+    "AVVIO PROCEDURA DI SANIFICAZIONE OBBLIGATORIA..."
 ];
 
 const finalMessage = "HACKERAGGIO COMPLETATO... INVITO FORZATO INOLTRATO";
-
 let index = 0;
+
 function typeNextLine() {
     const container = document.getElementById("hacker-text");
     if (index < hackerLines.length) {
@@ -282,7 +216,8 @@ function typeNextLine() {
         index++;
         setTimeout(typeNextLine, 400);
     } else {
-        document.getElementById("progress-bar-container").style.display = "block";
+        const progressContainer = document.getElementById("progress-bar-container");
+        progressContainer.style.display = "block";
         let progress = 0;
         const bar = document.getElementById("progress-bar");
         const loading = setInterval(() => {
@@ -291,10 +226,18 @@ function typeNextLine() {
             if (progress >= 100) {
                 clearInterval(loading);
                 container.innerHTML += "<br>" + finalMessage;
-
                 setTimeout(() => {
                     document.getElementById("hacker-screen").style.display = "none";
-                    document.getElementById("choice-screen").style.display = "flex";
+                    document.body.style.overflow = "visible";
+                    document.getElementById("real-page").style.display = "block";
+
+                    /* Avvia audio se presente */
+                    const music = document.getElementById("music");
+                    if (music) {
+                        const playPromise = music.play();
+                        if (playPromise) playPromise.catch(() => {});
+                    }
+
                 }, 3500);
             }
         }, 70);
@@ -302,32 +245,7 @@ function typeNextLine() {
 }
 typeNextLine();
 
-/* --- ENTRA NELLA PAGINA REALE + MUSICA --- */
-function enterRealPage() {
-    document.getElementById("choice-screen").style.display = "none";
-    document.getElementById("real-page").style.display = "block";
-
-    // avvia la musica
-    const song = document.getElementById("birthday-song");
-    song.volume = 0.9;
-    song.play().catch(() => {});
-}
-
-/* --- EFFETTO A CASCATA --- */
-const css = document.createElement("style");
-css.innerHTML = `
-.fade-item {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeIn 1s forwards ease-out;
-}
-@keyframes fadeIn {
-    to { opacity: 1; transform: translateY(0); }
-}
-`;
-document.head.appendChild(css);
-
-/* --- COUNTDOWN (resta identico al tuo) --- */
+/* --- Countdown compleanno --- */
 function updateCountdown() {
     const targetDate = new Date("December 17, 2025 00:00:00");
     const now = new Date();
@@ -335,24 +253,24 @@ function updateCountdown() {
 
     if (diff <= 0) {
         document.getElementById("countdown").innerHTML =
-            "<strong>🎉 È IL GRANDE GIORNO! (FATEMI GLI AUGURI) 🎉</strong>";
+          "<strong>🎉 È IL GRANDE GIORNO! (FATEMI GLI AUGURI) 🎉</strong>";
         return;
     }
 
     const days = Math.floor(diff / (1000*60*60*24));
-    const hours = Math.floor((diff / (1000*60*60)) % 24);
-    const minutes = Math.floor((diff / 1000 / 60) % 60);
-    const seconds = Math.floor((diff / 1000) % 60);
+    const hours = Math.floor((diff/(1000*60*60)) % 24);
+    const minutes = Math.floor((diff/1000/60) % 60);
+    const seconds = Math.floor((diff/1000) % 60);
 
     document.getElementById("countdown").innerHTML =
       `<strong>Mancano ${days} giorni, ${hours} ore, ${minutes} minuti e ${seconds} secondi.</strong>`;
 
     requestAnimationFrame(updateCountdown);
 }
+
 updateCountdown();
 
 </script>
 
 </body>
-</html>
 </html>
