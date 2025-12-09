@@ -229,12 +229,12 @@ typeNextLine();
 
 /* --- Countdown compleanno --- */
 function updateCountdown() {
-    const targetDate = new Date("December 17, 2025 20:00:00"); // aggiorna ora se serve
+    const targetDate = new Date("December 17, 2025 00:00:00"); // aggiorna ora se serve
     const now = new Date();
     const diff = targetDate - now;
 
     if (diff <= 0) {
-        document.getElementById("countdown").innerHTML = "<strong>È IL GRANDE GIORNO! 🎉</strong>";
+        document.getElementById("countdown").innerHTML = "<strong>🎉 È IL GRANDE GIORNO! (FATEMI GLI AUGURI) 🎉</strong>";
         return;
     }
 
