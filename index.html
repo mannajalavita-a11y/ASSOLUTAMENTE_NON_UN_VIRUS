@@ -93,8 +93,8 @@ body {
 
 /* Bottoni tondi molto grandi */
 button.round {
-    width: 120px;          /* larghezza */
-    height: 120px;         /* altezza uguale per renderlo tondo */
+    width: 110px;          /* larghezza */
+    height: 110px;         /* altezza uguale per renderlo tondo */
     border-radius: 50%;    /* tondo perfetto */
     border: none;
     cursor: pointer;
@@ -182,55 +182,60 @@ button.round#btn-ics:hover {
     Dove? Lo scoprirete solo premendo su questi due bottoni:
 </p>
     
-    <!-- BOTTONI TONDI AFFIANCATI -->
+    <!-- Contenitore dei bottoni tondi affiancati -->
 <div class="button-container">
-    <!-- Bottone cuore per il form -->
-    <button class="round" id="btn-form" onclick="window.open('https://forms.gle/YAFVJWv2R8nHUGMd6', '_blank')">
-        💗</button>
+  <!-- Bottone 💗 per aprire il form -->
+  <button class="round" id="btn-form"
+          onclick="window.open('https://forms.gle/YAFVJWv2R8nHUGMd6', '_blank')"
+          type="button">
+    💗
+  </button>
 
-    <!-- Bottone calendario per scaricare .ics -->
-    <a href="URL.ics" download class="round-link">
-   📅
-    </a>
+  <!-- Bottone 📅 per scaricare l'invito .ics -->
+  <button class="round" id="btn-ics"
+          onclick="window.open('https://github.com/mannajalavita-a11y/ASSOLUTAMENTE_NON_UN_VIRUS/releases/download/v1.0/vera-laura-birthday.ics', '_blank')"
+          type="button">
+    📅
+  </button>
 </div>
 
 <style>
-/* Contenitore bottoni tondi affiancati */
+/* Contenitore orizzontale per i bottoni */
 .button-container {
-    display: flex;
-    justify-content: center;
-    gap: 40px; 
-    margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 30px;
 }
 
-/* Bottoni tondi molto grandi */
+/* Bottoni tondi grandi */
 button.round {
-    width: 1300px;          
-    height: 130px;         
-    border-radius: 50%;    
-    border: none;
-    cursor: pointer;
-    font-size: 4.5rem;     
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    transition: 0.3s;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: none;
+  background: #ff66b2;
+  cursor: pointer;
+  font-size: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  transition: background 0.3s;
 }
 
-/* Sfondo rosa diversi */
 button.round#btn-form {
-    background: #ff66b2;   
+  background: #ff66b2;
 }
 button.round#btn-form:hover {
-    background: #ff3399;   
+  background: #ff3399;
 }
 
 button.round#btn-ics {
-    background: #ff99cc;   
+  background: #ff99cc;
 }
 button.round#btn-ics:hover {
-    background: #ff66b2;   
+  background: #ff66b2;
 }
 </style>
 
