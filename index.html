@@ -51,7 +51,7 @@ body {
     background-color: #0f0;
 }
 
-/* --- SCHERMATA INTERMEDIA --- */
+/* --- SCHERMATA INTERMEDIA ACCETTA/RIFIUTA --- */
 #intermediate-screen {
     display: none;
     position: fixed;
@@ -79,6 +79,7 @@ body {
     padding: 12px 20px;
     font-size: 1.3rem;
     cursor: pointer;
+    border-radius: 8px;
     transition: 0.3s;
 }
 .choice-buttons button:hover {
@@ -165,13 +166,14 @@ button.round {
     color: #d63384;
     font-weight: bold;
 }
+
 </style>
 </head>
 
 <body>
 
 <!-- 🎧 AUDIO (INSERISCI QUI IL TUO FILE MP3) -->
-<audio id="bg-music" src="PERCORSO/DEL/TUO/AUDIO.mp3"></audio>
+<audio id="bg-music" src="LINK_DEL_TUO_MP3.mp3"></audio>
 
 <!-- SCHERMATA HACKER -->
 <div id="hacker-screen">
@@ -179,12 +181,12 @@ button.round {
     <div id="progress-bar-container"><div id="progress-bar"></div></div>
 </div>
 
-<!-- SCHERMATA INTERMEDIA -->
+<!-- SCHERMATA INTERMEDIA ACCETTA/RIFIUTA -->
 <div id="intermediate-screen">
     <div>ACCESSO RICHIESTO<br>CONFERMARE L’INVITO</div>
     <div class="choice-buttons">
-        <button onclick="enterRealPage()">ACCETTA</button>
-        <button onclick="enterRealPage()">RIFIUTA</button>
+        <button id="btn-accept">ACCETTA</button>
+        <button id="btn-decline">RIFIUTA</button>
     </div>
 </div>
 
@@ -265,10 +267,13 @@ function enterRealPage() {
     document.body.style.overflow = "visible";
     document.getElementById("real-page").style.display = "block";
 
-    // fai partire la musica se presente
     const audio = document.getElementById("bg-music");
-    if (audio) audio.play().catch(() => {});
+    if (audio) audio.play().catch(()=>{});
 }
+
+/* Eventi per entrambi i bottoni */
+document.getElementById("btn-accept").addEventListener("click", enterRealPage);
+document.getElementById("btn-decline").addEventListener("click", enterRealPage);
 
 /* --- Countdown --- */
 function updateCountdown() {
