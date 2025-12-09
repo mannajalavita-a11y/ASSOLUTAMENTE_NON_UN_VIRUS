@@ -91,19 +91,18 @@ body {
     margin-top: 20px;
 }
 
-/* Bottoni tondi grandi */
+/* Bottoni tondi grandi con solo emoticon */
 button.round {
     width: 80px;          /* larghezza */
-    height: 80px;         /* altezza uguale alla larghezza per renderlo perfettamente tondo */
-    border-radius: 50%;   /* rende il bottone rotondo */
+    height: 80px;         /* altezza uguale alla larghezza per renderlo tondo */
+    border-radius: 50%;   /* rende il bottone completamente rotondo */
     border: none;
     cursor: pointer;
     font-size: 2.5rem;    /* dimensione dell'emoticon */
-    font-family: 'Pacifico', cursive;
-    color: white;
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
+    color: white;
     transition: 0.3s;
 }
 
@@ -120,32 +119,6 @@ button.round#btn-ics {
 button.round#btn-ics:hover {
     background: #ff85c8;
 }
-
-/* Colori diversi ma stessa grandezza */
-#btn-form {
-    background: #ff8ad9;
-    color: white;
-}
-#btn-form:hover { background: #ffa6e5; }
-
-#btn-ics {
-    background: #ff69b4;
-    color: white;
-}
-#btn-ics:hover { background: #ff85c8; }
-}
-
-#btn-form {
-    background: #ff8ad9;
-    color: white;
-}
-#btn-form:hover { background: #ffa6e5; }
-
-#btn-ics {
-    background: #ff69b4;
-    color: white;
-}
-#btn-ics:hover { background: #ff85c8; }
 
 /* GIF decorative */
 .decoration {
@@ -175,8 +148,6 @@ button.round#btn-ics:hover {
     margin: 40px 0 35px 0; /* più spazio sopra e sotto */
     color: #d63384;
     font-weight: bold;
-}
-
 }
 
 </style>
@@ -213,11 +184,11 @@ button.round#btn-ics:hover {
     <!-- BOTTONI -->
     <div class="button-container">
     <button id="btn-form" onclick="window.open('https://forms.gle/YAFVJWv2R8nHUGMd6', '_blank')">
-        💗 Conferma la presenza 💗
+        💗
     </button>
 
     <a href="https://github.com/mannajalavita-a11y/ASSOLUTAMENTE_NON_UN_VIRUS/releases/download/v1.0/vera-laura-birthday.ics" download>
-    <button id="btn-ics">📅 Scarica l'invito 📅</button>
+    <button id="btn-ics">📅</button>
     </a>
     </div>
     
