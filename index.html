@@ -87,18 +87,18 @@ body {
 .button-container {
     display: flex;
     justify-content: center;  /* centra i bottoni orizzontalmente */
-    gap: 30px;                /* spazio tra i bottoni */
-    margin-top: 20px;
+    gap: 40px;                /* spazio tra i bottoni */
+    margin-top: 30px;
 }
 
-/* Bottoni tondi grandi con solo emoticon */
+/* Bottoni tondi molto grandi */
 button.round {
-    width: 80px;          /* larghezza */
-    height: 80px;         /* altezza uguale alla larghezza per renderlo tondo */
-    border-radius: 50%;   /* rende il bottone completamente rotondo */
+    width: 120px;          /* larghezza */
+    height: 120px;         /* altezza uguale per renderlo tondo */
+    border-radius: 50%;    /* tondo perfetto */
     border: none;
     cursor: pointer;
-    font-size: 2.5rem;    /* dimensione dell'emoticon */
+    font-size: 4rem;       /* dimensione dell'emoticon */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -106,18 +106,19 @@ button.round {
     transition: 0.3s;
 }
 
+/* Bottoni con sfondi rosa diversi */
 button.round#btn-form {
-    background: #ff8ad9;
+    background: #ff66b2;   /* rosa acceso */
 }
 button.round#btn-form:hover {
-    background: #ffa6e5;
+    background: #ff3399;   /* rosa più intenso al passaggio */
 }
 
 button.round#btn-ics {
-    background: #ff69b4;
+    background: #ff99cc;   /* rosa chiaro */
 }
 button.round#btn-ics:hover {
-    background: #ff85c8;
+    background: #ff66b2;   /* rosa più scuro al passaggio */
 }
 
 /* GIF decorative */
