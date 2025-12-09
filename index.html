@@ -69,7 +69,7 @@ body {
 }
 
 #real-page .nome {
-    font-size: 3rem; /* più grande */
+    font-size: 2.8rem; /* più grande */
     margin-top: 10px;
     color: #8b007a;
     position: relative;
@@ -229,23 +229,26 @@ typeNextLine();
 
 /* --- Countdown compleanno --- */
 function updateCountdown() {
-    const targetDate = new Date("December 17, 2025 00:00:00");
+    const targetDate = new Date("December 17, 2025 20:00:00"); // aggiorna ora se serve
     const now = new Date();
     const diff = targetDate - now;
 
     if (diff <= 0) {
-        document.getElementById("countdown").innerHTML = "🎉 È IL GRANDE GIORNO! 🎉";
+        document.getElementById("countdown").innerHTML = "<strong>È IL GRANDE GIORNO! 🎉</strong>";
         return;
     }
 
     const days = Math.floor(diff / (1000 * 60 * 60 * 24));
     const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
     const minutes = Math.floor((diff / (1000 * 60)) % 60);
-    const seconds = Math.floor((diff / 1000) % 60);
+    const seconds = Math.floor((diff / 1000) % 60); // aggiungi i secondi
 
     document.getElementById("countdown").innerHTML =
-  `Mancano ${days} giorni, ${hours} ore, ${minutes} minuti e ${seconds} secondi.`;
+      `<strong>Mancano ${days} giorni, ${hours} ore, ${minutes} minuti e ${seconds} secondi.</strong>`;
+
+    requestAnimationFrame(updateCountdown); // richiama la funzione continuamente senza aggiornare la pagina
 }
+
 updateCountdown();
 
 </script>
