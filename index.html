@@ -17,7 +17,7 @@ body {
     font-family: monospace;
     background: black;
     color: #00ff55;
-    overflow: hidden;  /* BOOM: attivo solo durante hacker screen */
+    overflow: hidden;
 }
 
 #hacker-screen {
@@ -36,7 +36,14 @@ body {
     z-index: 9999;
 }
 
-.matrix { font-size: 20px; white-space: nowrap; position: absolute; top: 0; left: 0; color: #00ff55; opacity: 0.7; }
+.matrix { 
+    font-size: 20px; 
+    white-space: nowrap; 
+    position: absolute; 
+    top: 0; left: 0; 
+    color: #00ff55; 
+    opacity: 0.7; 
+}
 
 /* --- PAGINA ROSA --- */
 #real-page {
@@ -51,18 +58,17 @@ body {
     position: relative;
 }
 
-/* Titoli e nome */
-#real-page h1,
-#real-page .nome {
-    font-family: 'Baguet Script', cursive;
+/* Titoli e nome - Sparkle effect */
+.sparkle {
     position: relative;
     animation: sparkle 2s infinite;
 }
 
 #real-page h1 {
-    font-size: 3.0rem; 
+    font-size: 3rem;
     margin-top: 10px;
     color: #c2185b;
+    font-family: 'Pacifico', cursive;
 }
 
 #real-page .nome {
@@ -78,6 +84,13 @@ body {
     100% { text-shadow: 0 0 2px #fff, 0 0 5px #ffb6c1; }
 }
 
+/* Testi standard della pagina rosa */
+.real-page-text {
+    font-size: 20px;
+    color: #c2185b;
+    margin: 20px 0;
+}
+
 /* Contenitore bottoni tondi affiancati */
 .button-container {
     display: flex;
@@ -86,27 +99,34 @@ body {
     margin-top: 30px;
 }
 
-/* Bottoni tondi */
+/* Bottoni tondi grandi */
 button.round {
     width: 110px;
     height: 110px;
     border-radius: 50%;
     border: none;
     cursor: pointer;
-    font-size: 4rem;
+    font-size: 3.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
-    transition: 0.3s;
+    transition: background 0.3s;
 }
 
-/* Bottoni rosa */
-button.round#btn-form { background: #ff66b2; }
-button.round#btn-form:hover { background: #ff3399; }
+button.round#btn-form {
+    background: #ff66b2;
+}
+button.round#btn-form:hover {
+    background: #ff3399;
+}
 
-button.round#btn-ics { background: #ff99cc; }
-button.round#btn-ics:hover { background: #ff66b2; }
+button.round#btn-ics {
+    background: #ff99cc;
+}
+button.round#btn-ics:hover {
+    background: #ff66b2;
+}
 
 /* GIF decorative */
 .decoration {
@@ -114,7 +134,7 @@ button.round#btn-ics:hover { background: #ff66b2; }
     margin: 10px;
 }
 
-/* Barra di caricamento */
+/* Barra di caricamento hacker */
 #progress-bar-container {
     width: 80%;
     height: 20px;
@@ -151,43 +171,49 @@ button.round#btn-ics:hover { background: #ff66b2; }
     </div>
 </div>
 
-<!-- PAGINA ROSA -->
+<!-- PAGINA ROSA PRINCIPESCA -->
 <div id="real-page">
 
-    <!-- QUI IL TUO AUDIO -->
-    <!-- Esempio:
-    <audio id="music" src="msc.mp3" autoplay loop></audio>
-    -->
+    <!-- Placeholder audio -->
+    <audio id="birthday-audio" src="LINK_DEL_TUO_AUDIO.mp3" preload="auto"></audio>
 
+    <!-- Cuore superiore GIF -->
     <img src="https://i.pinimg.com/originals/24/1a/ca/241aca6abe6f2f512e206bff1d807ea5.gif" class="decoration">
 
-    <h1>Happy 27th Birthday</h1>
-    <div class="nome">🎀 Vera Laura 🎀</div>
+    <h1 class="sparkle">Happy 27th Birthday</h1>
+    <div class="nome sparkle">🎀 Vera Laura 🎀</div>
     <div id="countdown"></div>
 
-    <p style="font-size: 20px; color: #c2185b; margin: 20px 0;">
+    <p class="real-page-text">
         Vi aspetto il 20 dicembre a partire dalle ore 20:30 per festeggiare insieme un altro anno in cui ho avuto sempre e solo ragione!
     </p>
-
-    <p style="font-size: 20px; color: #c2185b; margin: 20px 0;">
+    
+    <p class="real-page-text">
         Dove? Lo scoprirete solo premendo su questi due bottoni:
     </p>
-
+    
+    <!-- Contenitore dei bottoni tondi affiancati -->
     <div class="button-container">
+      <!-- Bottone 💗 per aprire il form -->
       <button class="round" id="btn-form"
-              onclick="window.open('https://forms.gle/YAFVJWv2R8nHUGMd6', '_blank')">
+              onclick="window.open('https://forms.gle/YAFVJWv2R8nHUGMd6', '_blank')"
+              type="button">
         💗
       </button>
 
+      <!-- Bottone 📅 per scaricare l'invito .ics -->
       <button class="round" id="btn-ics"
-              onclick="window.open('https://github.com/mannajalavita-a11y/ASSOLUTAMENTE_NON_UN_VIRUS/releases/download/v1.0/vera-laura-birthday.ics', '_blank')">
+              onclick="window.open('https://github.com/mannajalavita-a11y/ASSOLUTAMENTE_NON_UN_VIRUS/releases/download/v1.0/vera-laura-birthday.ics', '_blank')"
+              type="button">
         📅
       </button>
     </div>
 
-    <br><br>
-    <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMjhydmp0bmJpb2VsYjZucm9udzBxMTdjdW5qOXU0OThpZHMzZHB6YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/jSEvK8lnqeCfWASVNi/giphy.gif" class="decoration">
-    <img src="https://www.photofunky.net/output/image/e/1/b/a/e1ba35/photofunky.gif" class="decoration">
+    <!-- GIF decorative inferiori -->
+    <div style="margin-top: 30px;">
+        <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMjhydmp0bmJpb2VsYjZucm9udzBxMTdjdW5qOXU0OThpZHMzZHB6YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/jSEvK8lnqeCfWASVNi/giphy.gif" class="decoration">
+        <img src="https://www.photofunky.net/output/image/e/1/b/a/e1ba35/photofunky.gif" class="decoration">
+    </div>
     
 </div>
 
@@ -228,16 +254,12 @@ function typeNextLine() {
                 container.innerHTML += "<br>" + finalMessage;
                 setTimeout(() => {
                     document.getElementById("hacker-screen").style.display = "none";
-                    document.body.style.overflow = "visible";
+                    document.body.style.overflow = "visible"; // ora si può scrollare
                     document.getElementById("real-page").style.display = "block";
 
-                    /* Avvia audio se presente */
-                    const music = document.getElementById("music");
-                    if (music) {
-                        const playPromise = music.play();
-                        if (playPromise) playPromise.catch(() => {});
-                    }
-
+                    // Avvia l'audio
+                    const audio = document.getElementById('birthday-audio');
+                    audio.play();
                 }, 3500);
             }
         }, 70);
@@ -247,20 +269,19 @@ typeNextLine();
 
 /* --- Countdown compleanno --- */
 function updateCountdown() {
-    const targetDate = new Date("December 17, 2025 00:00:00");
+    const targetDate = new Date("December 17, 2025 00:00:00"); 
     const now = new Date();
     const diff = targetDate - now;
 
     if (diff <= 0) {
-        document.getElementById("countdown").innerHTML =
-          "<strong>🎉 È IL GRANDE GIORNO! (FATEMI GLI AUGURI) 🎉</strong>";
+        document.getElementById("countdown").innerHTML = "<strong>🎉 È IL GRANDE GIORNO! (FATEMI GLI AUGURI) 🎉</strong>";
         return;
     }
 
-    const days = Math.floor(diff / (1000*60*60*24));
-    const hours = Math.floor((diff/(1000*60*60)) % 24);
-    const minutes = Math.floor((diff/1000/60) % 60);
-    const seconds = Math.floor((diff/1000) % 60);
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
 
     document.getElementById("countdown").innerHTML =
       `<strong>Mancano ${days} giorni, ${hours} ore, ${minutes} minuti e ${seconds} secondi.</strong>`;
