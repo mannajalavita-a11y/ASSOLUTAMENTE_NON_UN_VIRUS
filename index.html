@@ -164,105 +164,116 @@ button.round#btn-ics:hover {
     </div>
 </div>
 
-<!-- PAGINA ROSA PRINCIPESCA -->
-<div id="real-page">
-
-    <!-- Cuore superiore GIF -->
-    <img src="https://i.pinimg.com/originals/24/1a/ca/241aca6abe6f2f512e206bff1d807ea5.gif" class="decoration">
-
-    <h1>Happy 27th Birthday</h1>
-   <div class="nome">🎀 Vera Laura 🎀</div>
-    <div id="countdown"></div>
-
-<p style="font-size: 20px; color: #c2185b; margin: 20px 0;">
-    Vi aspetto il 20 dicembre a partire dalle ore 20:30 per festeggiare insieme un altro anno in cui ho avuto sempre e solo ragione!
-</p>
+<!-- SCHERMATA DI SCELTA -->
+<div id="choice-screen" style="
+    display:none;
+    position:fixed; top:0; left:0;
+    width:100vw; height:100vh;
+    background:black;
+    color:#00ff55;
+    font-family:monospace;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    z-index:9998;">
     
-    <p style="font-size: 20px; color: #c2185b; margin: 20px 0;">
-    Dove? Lo scoprirete solo premendo su questi due bottoni:
-</p>
-    
-    <!-- Contenitore dei bottoni tondi affiancati -->
-<div class="button-container">
-  <!-- Bottone 💗 per aprire il form -->
-  <button class="round" id="btn-form"
-          onclick="window.open('https://forms.gle/YAFVJWv2R8nHUGMd6', '_blank')"
-          type="button">
-    💗
-  </button>
+    <p style="font-size:1.6rem; margin-bottom:30px; color:#00ff55;">
+        ACCESSO NON AUTORIZZATO<br>CONFERMA L'INVITO?
+    </p>
 
-  <!-- Bottone 📅 per scaricare l'invito .ics -->
-  <button class="round" id="btn-ics"
-          onclick="window.open('https://github.com/mannajalavita-a11y/ASSOLUTAMENTE_NON_UN_VIRUS/releases/download/v1.0/vera-laura-birthday.ics', '_blank')"
-          type="button">
-    📅
-  </button>
+    <div style="display:flex; gap:40px;">
+        <button onclick="enterRealPage()" style="
+            padding:15px 35px;
+            font-size:1.3rem;
+            background:none;
+            color:#00ff55;
+            border:2px solid #00ff55;
+            border-radius:12px;
+            cursor:pointer;">
+            ACCETTA
+        </button>
+
+        <button onclick="enterRealPage()" style="
+            padding:15px 35px;
+            font-size:1.3rem;
+            background:none;
+            color:#00ff55;
+            border:2px solid #00ff55;
+            border-radius:12px;
+            cursor:pointer;">
+            RIFIUTA
+        </button>
+    </div>
 </div>
 
-<style>
-/* Contenitore orizzontale per i bottoni */
-.button-container {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  margin-top: 30px;
-}
+<!-- PAGINA ROSA -->
+<div id="real-page" style="display:none;">
 
-/* Bottoni tondi grandi */
-button.round {
-  width: 110px;
-  height: 110px;
-  border-radius: 50%;
-  border: none;
-  background: #ff66b2;
-  cursor: pointer;
-  font-size: 3.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  transition: background 0.3s;
-}
+    <!-- AUDIO (INSERISCI QUI IL TUO FILE MP3) -->
+    <audio id="birthday-song">
+        <source src="TUO_FILE.mp3" type="audio/mpeg">
+    </audio>
 
-button.round#btn-form {
-  background: #ff66b2;
-}
-button.round#btn-form:hover {
-  background: #ff3399;
-}
+    <!-- Cuore superiore GIF -->
+    <img class="decoration fade-item" src="https://i.pinimg.com/originals/24/1a/ca/241aca6abe6f2f512e206bff1d807ea5.gif">
 
-button.round#btn-ics {
-  background: #ff99cc;
-}
-button.round#btn-ics:hover {
-  background: #ff66b2;
-}
-</style>
+    <h1 class="fade-item" style="animation-delay:0.3s;">Happy 27th Birthday</h1>
+    <div class="nome fade-item" style="animation-delay:0.6s;">🎀 Vera Laura 🎀</div>
 
-    
-    <!-- Principessa inferiore GIF duplicata -->
+    <div id="countdown" class="fade-item" style="animation-delay:0.9s;"></div>
+
+    <p class="fade-item" style="animation-delay:1.2s; font-size:20px; color:#c2185b;">
+        Vi aspetto il 20 dicembre a partire dalle ore 20:30 per festeggiare insieme un altro anno
+        in cui ho avuto sempre e solo ragione!
+    </p>
+
+    <p class="fade-item" style="animation-delay:1.5s; font-size:20px; color:#c2185b;">
+        Dove?<br>Lo scoprirete solo premendo su questi due bottoni:
+    </p>
+
+    <!-- BOTTONI TONDI -->
+    <div class="button-container fade-item" style="animation-delay:1.8s;">
+        <button class="round" id="btn-form"
+                onclick="window.open('https://forms.gle/YAFVJWv2R8nHUGMd6', '_blank')">
+            💗
+        </button>
+
+        <button class="round" id="btn-ics"
+                onclick="window.open('https://github.com/mannajalavita-a11y/ASSOLUTAMENTE_NON_UN_VIRUS/releases/download/v1.0/vera-laura-birthday.ics', '_blank')">
+            📅
+        </button>
+    </div>
+
     <br><br>
-    <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMjhydmp0bmJpb2VsYjZucm9udzBxMTdjdW5qOXU0OThpZHMzZHB6YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/jSEvK8lnqeCfWASVNi/giphy.gif" class="decoration">
-    <img src="https://www.photofunky.net/output/image/e/1/b/a/e1ba35/photofunky.gif" class="decoration">
-    
+
+    <!-- GIF in fondo -->
+    <img class="decoration fade-item" style="animation-delay:2.1s;"
+         src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMjhydmp0bmJpb2VsYjZucm9udzBxMTdjdW5qOXU0OThpZHMzZHB6YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/jSEvK8lnqeCfWASVNi/giphy.gif">
+
+    <img class="decoration fade-item" style="animation-delay:2.4s;"
+         src="https://www.photofunky.net/output/image/e/1/b/a/e1ba35/photofunky.gif">
+
 </div>
 
 <script>
 /* --- TESTO HACKER --- */
 const hackerLines = [
-    "INITIALIZING SYSTEM BREACH...",
-    "BY-PASSING FIREWALL...",
-    "ANALISI GERMI SU PAVIMENTO...",
-    "RILEVATI MICROBI SU SCHERMO...",
-    "ACCENSIONE ASPIRAPOLVERE...",
-    "ELIMINAZIONE MACCHIE...",
-    "DOWNLOADING PRIVATE DATA...",
-    "### ATTENZIONE: DISPOSITIVO NON SANIFICATO ###",
-    "ERRORE CRITICO: PAZIENZA COMPROMESSA",
-    "AVVIO PROCEDURA DI SANIFICAZIONE OBBLIGATORIA..."
+ "INITIALIZING SYSTEM BREACH...",
+ "BY-PASSING FIREWALL...",
+ "ANALISI GERMI SU PAVIMENTO...",
+ "RILEVATI MICROBI SU SCHERMO...",
+ "ACCENSIONE ASPIRAPOLVERE...",
+ "ELIMINAZIONE MACCHIE...",
+ "DOWNLOADING PRIVATE DATA...",
+ "### ATTENZIONE: DISPOSITIVO NON SANIFICATO ###",
+ "ERRORE CRITICO: PAZIENZA COMPROMESSA",
+ "AVVIO PROCEDURA DI SANIFICAZIONE OBBLIGATORIA..."
 ];
 
 const finalMessage = "HACKERAGGIO COMPLETATO... INVITO FORZATO INOLTRATO";
+
 let index = 0;
 function typeNextLine() {
     const container = document.getElementById("hacker-text");
@@ -271,8 +282,7 @@ function typeNextLine() {
         index++;
         setTimeout(typeNextLine, 400);
     } else {
-        const progressContainer = document.getElementById("progress-bar-container");
-        progressContainer.style.display = "block";
+        document.getElementById("progress-bar-container").style.display = "block";
         let progress = 0;
         const bar = document.getElementById("progress-bar");
         const loading = setInterval(() => {
@@ -281,10 +291,10 @@ function typeNextLine() {
             if (progress >= 100) {
                 clearInterval(loading);
                 container.innerHTML += "<br>" + finalMessage;
+
                 setTimeout(() => {
                     document.getElementById("hacker-screen").style.display = "none";
-                    document.body.style.overflow = "visible";
-                    document.getElementById("real-page").style.display = "block";
+                    document.getElementById("choice-screen").style.display = "flex";
                 }, 3500);
             }
         }, 70);
@@ -292,31 +302,57 @@ function typeNextLine() {
 }
 typeNextLine();
 
-/* --- Countdown compleanno --- */
+/* --- ENTRA NELLA PAGINA REALE + MUSICA --- */
+function enterRealPage() {
+    document.getElementById("choice-screen").style.display = "none";
+    document.getElementById("real-page").style.display = "block";
+
+    // avvia la musica
+    const song = document.getElementById("birthday-song");
+    song.volume = 0.9;
+    song.play().catch(() => {});
+}
+
+/* --- EFFETTO A CASCATA --- */
+const css = document.createElement("style");
+css.innerHTML = `
+.fade-item {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1s forwards ease-out;
+}
+@keyframes fadeIn {
+    to { opacity: 1; transform: translateY(0); }
+}
+`;
+document.head.appendChild(css);
+
+/* --- COUNTDOWN (resta identico al tuo) --- */
 function updateCountdown() {
-    const targetDate = new Date("December 17, 2025 00:00:00"); // aggiorna ora se serve
+    const targetDate = new Date("December 17, 2025 00:00:00");
     const now = new Date();
     const diff = targetDate - now;
 
     if (diff <= 0) {
-        document.getElementById("countdown").innerHTML = "<strong>🎉 È IL GRANDE GIORNO! (FATEMI GLI AUGURI) 🎉</strong>";
+        document.getElementById("countdown").innerHTML =
+            "<strong>🎉 È IL GRANDE GIORNO! (FATEMI GLI AUGURI) 🎉</strong>";
         return;
     }
 
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-    const minutes = Math.floor((diff / (1000 * 60)) % 60);
-    const seconds = Math.floor((diff / 1000) % 60); // aggiungi i secondi
+    const days = Math.floor(diff / (1000*60*60*24));
+    const hours = Math.floor((diff / (1000*60*60)) % 24);
+    const minutes = Math.floor((diff / 1000 / 60) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
 
     document.getElementById("countdown").innerHTML =
       `<strong>Mancano ${days} giorni, ${hours} ore, ${minutes} minuti e ${seconds} secondi.</strong>`;
 
-    requestAnimationFrame(updateCountdown); // richiama la funzione continuamente senza aggiornare la pagina
+    requestAnimationFrame(updateCountdown);
 }
-
 updateCountdown();
 
 </script>
 
 </body>
+</html>
 </html>
